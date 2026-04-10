@@ -1,307 +1,1001 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Umesh Yadav | AI Engineer & Full-Stack Developer</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Hero Section -->
-    <section id="hero">
-      <div class="container">
-        <div class="glitch-wrapper">
-          <h1 class="glitch" data-text="UMESH YADAV">UMESH YADAV</h1>
-        </div>
-        <p class="tagline">Software Engineer | Machine Learning | Researcher</p>
-        <p class="bio">
-          AWS Certified Developer specializing in software engineering, machine
-          learning, and academic research. I build production applications with
-          Python, React, and Node.js while conducting research in diffusion
-          models, RAG, and LLMs. I am a published author with contributions
-          spanning computer science, machine learning, and generative AI.
-        </p>
-        <div class="social-links">
-          <a href="https://github.com/umesh0518" target="_blank" class="btn"
-            >GitHub</a
-          >
-          <a
-            href="https://www.linkedin.com/in/umesh-yadav-29120a191"
-            target="_blank"
-            class="btn"
-            >LinkedIn</a
-          >
-          <a
-            href="https://scholar.google.com/citations?user=0sXDNMgAAAAJ&hl=en"
-            target="_blank"
-            class="btn"
-            >Scholar</a
-          >
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Umesh Yadav — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0B0E14;
+  --bar: #080a0f;
+  --dock-bg: rgba(11,14,20,0.94);
+  --accent: #8792A3;
+  --accent2: #6a7585;
+  --accent-rgb: 135,146,163;
+  --win-bg: #0f1217;
+  --win-header: #0B0E14;
+  --win-border: rgba(135,146,163,0.14);
+  --text: #F5F5F7;
+  --muted: #3a3f4a;
+  --muted2: #6a7080;
+  --surface: #151A22;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Outfit', sans-serif;
+  --win-radius: 8px;
+  --shadow: 0 24px 80px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.6);
+}
+body.light-mode {
+  --bg: #FAFAFA; --bar: #EFEFF0; --dock-bg: rgba(239,239,240,0.96);
+  --win-bg: #FFFFFF; --win-header: #F2F2F3; --win-border: rgba(0,0,0,0.09);
+  --text: #1C1C1E; --muted: #b0b0b0; --muted2: #6a6a6a; --surface: #EBEBEC;
+  --shadow: 0 12px 40px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
+}
+/* Light mode text fixes */
+body.light-mode .tb-menu { color: #1C1C1E; }
+body.light-mode .tb-right { color: #6a6a6a; }
+body.light-mode .win-title { color: #888; }
+body.light-mode .term-wrap { background: #1a1a1a; }
+body.light-mode .about-name { color: #1C1C1E; }
+body.light-mode .exp-role { color: #1C1C1E; }
+body.light-mode .res-title { color: #1C1C1E; }
+body.light-mode .proj-name { color: #1C1C1E; }
+body.light-mode .contact-val { color: #1C1C1E; }
+body.light-mode .sk-name { color: #1C1C1E; }
+body.light-mode .edu-deg { color: #1C1C1E; }
+body.light-mode .contact-title { color: #1C1C1E; }
+body.light-mode .settings-h1 { color: #1C1C1E; }
+body.light-mode .s-label { color: #1C1C1E; }
+body.light-mode .folder-item-name { color: #1C1C1E; }
+body.light-mode .hobbies-body { color: #1C1C1E; }
+body.light-mode .photo-caption { color: #6a6a6a; }
+body.light-mode .di-label { text-shadow: none; color: #1C1C1E; }
+body.light-mode .sk-dot { background: rgba(var(--accent-rgb),0.15); border-color: rgba(var(--accent-rgb),0.2); }
+body.light-mode .alink-ghost { color: #5a5a5a; }
+body.light-mode .exp-desc-short { color: #5a5a5a; }
+body.light-mode .am-label { color: #888; }
+body.light-mode .exp-period { color: #999; }
+body.light-mode .exp-section-label { color: #aaa; }
+body.light-mode .about-bio { color: #555; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:100%;height:100%;overflow:hidden;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);cursor:default;user-select:none;transition:background .3s,color .3s;}
+
+/* WALLPAPER */
+#wallpaper{position:fixed;inset:0;z-index:0;transition:background .4s;}
+#wallpaper::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(var(--accent-rgb),0.04) 1px,transparent 1px);background-size:28px 28px;}
+
+/* TOPBAR */
+#topbar{position:fixed;top:0;left:0;right:0;height:28px;background:var(--bar);border-bottom:1px solid var(--win-border);display:flex;align-items:center;justify-content:space-between;padding:0 12px;z-index:1000;transition:background .3s;}
+.tb-left{display:flex;align-items:center;gap:14px;}
+.tb-logo{width:20px;height:20px;background:var(--accent);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;letter-spacing:-0.05em;}
+.tb-menu{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--text);cursor:pointer;padding:2px 6px;border-radius:4px;transition:background .15s;}
+.tb-menu:hover{background:rgba(128,128,128,0.1);}
+.tb-right{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:var(--muted2);}
+.tb-avail{display:flex;align-items:center;gap:5px;}
+.tb-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;position:relative;flex-shrink:0;}
+.tb-dot::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid #4ade80;opacity:.5;animation:pulse-ring 2s infinite;}
+@keyframes pulse-ring{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.2);opacity:0}}
+.tb-icon-btn{width:22px;height:22px;border-radius:5px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .15s;}
+.tb-icon-btn:hover{background:rgba(128,128,128,0.15);}
+
+/* DESKTOP ICONS */
+#desktop{position:fixed;inset:28px 0 72px 0;z-index:1;display:flex;flex-direction:column;gap:8px;padding:16px 12px;align-items:flex-start;pointer-events:none;}
+.desk-icon{display:flex;flex-direction:column;align-items:center;gap:4px;width:72px;cursor:pointer;pointer-events:all;padding:6px;border-radius:6px;transition:background .15s;}
+.desk-icon:hover{background:rgba(var(--accent-rgb),0.12);}
+.desk-icon:active{background:rgba(var(--accent-rgb),0.2);}
+.di-img{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--surface);border:1px solid var(--win-border);}
+.di-img.file-icon{font-family:var(--mono);font-size:9px;color:var(--muted2);font-weight:700;}
+.di-label{font-size:11px;color:var(--text);text-align:center;line-height:1.3;text-shadow:0 1px 4px rgba(0,0,0,0.6);}
+body.light-mode .di-label{text-shadow:none;}
+
+/* DOCK */
+#dock{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);background:var(--dock-bg);border:1px solid var(--win-border);border-radius:14px;padding:8px 12px;display:flex;gap:6px;align-items:center;z-index:1000;backdrop-filter:blur(24px);box-shadow:0 8px 32px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.05);transition:background .3s;}
+.dock-btn{width:44px;height:44px;background:rgba(var(--accent-rgb),0.1);border:1px solid rgba(var(--accent-rgb),0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;transition:all .15s;font-size:18px;}
+.dock-btn:hover{background:rgba(var(--accent-rgb),0.26);transform:translateY(-4px);border-color:rgba(var(--accent-rgb),0.32);}
+.dock-btn:active{transform:translateY(-2px);}
+.dock-btn .tooltip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--bar);border:1px solid var(--win-border);color:var(--text);font-size:11px;font-family:var(--mono);padding:3px 8px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;}
+.dock-btn:hover .tooltip{opacity:1;}
+.dock-btn.active{background:rgba(var(--accent-rgb),0.2);border-color:rgba(var(--accent-rgb),0.38);}
+.dock-btn.active::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--accent);}
+
+/* WINDOWS */
+.win{position:fixed;z-index:100;background:var(--win-bg);border:1px solid var(--win-border);border-radius:var(--win-radius);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden;min-width:300px;min-height:200px;transition:box-shadow .15s,background .3s,border-color .3s;}
+.win.focused{box-shadow:var(--shadow),0 0 0 1px rgba(var(--accent-rgb),0.22);z-index:200;}
+.win.hidden{display:none;}
+.win-header{height:36px;background:var(--win-header);border-bottom:1px solid var(--win-border);display:flex;align-items:center;gap:8px;padding:0 12px;cursor:grab;flex-shrink:0;transition:background .3s;}
+.win-header:active{cursor:grabbing;}
+.win-controls{display:flex;gap:6px;flex-shrink:0;}
+.wc{width:14px;height:14px;border-radius:50%;cursor:pointer;transition:filter .15s;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:transparent;font-family:var(--mono);}
+.wc:hover{filter:brightness(1.1);color:rgba(0,0,0,0.55);}
+.wc-close{background:#ff5f57;}.wc-min{background:#febc2e;}.wc-max{background:#28c840;}
+
+/* FOLDER WINDOW (generic) */
+#win-personal{width:400px;height:360px;top:100px;left:100px;}
+#win-photos{width:480px;height:380px;top:120px;left:130px;}
+.folder-toolbar{padding:8px 14px;border-bottom:1px solid var(--win-border);font-family:var(--mono);font-size:10px;color:var(--muted2);display:flex;align-items:center;gap:6px;}
+.folder-grid{padding:16px;display:flex;flex-wrap:wrap;gap:14px;}
+.folder-item{display:flex;flex-direction:column;align-items:center;gap:5px;width:80px;cursor:pointer;padding:8px 6px;border-radius:7px;transition:background .15s;}
+.folder-item:hover{background:rgba(var(--accent-rgb),0.1);}
+.folder-item-icon{width:48px;height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--surface);border:1px solid var(--win-border);}
+.folder-item-icon.md-icon{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--muted2);}
+.folder-item-name{font-size:11px;color:var(--text);text-align:center;line-height:1.3;}
+
+/* HOBBIES WINDOW */
+#win-hobbies{width:380px;height:340px;top:130px;left:120px;}
+.hobbies-body{padding:22px;}
+.hobbies-title{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:6px;}
+.hobbies-sub{font-family:var(--mono);font-size:10px;color:var(--muted2);margin-bottom:18px;}
+.hobby-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(var(--accent-rgb),0.08);}
+.hobby-emoji{font-size:22px;width:34px;text-align:center;flex-shrink:0;}
+.hobby-name{font-size:13px;font-weight:600;color:var(--text);}
+.hobby-desc{font-family:var(--mono);font-size:10px;color:var(--muted2);margin-top:2px;}
+
+/* PHOTO VIEWER */
+#win-photo-viewer{width:500px;height:420px;top:90px;left:180px;}
+.photo-viewer-body{height:100%;display:flex;flex-direction:column;}
+.photo-canvas{flex:1;display:flex;align-items:center;justify-content:center;background:#050505;overflow:hidden;}
+body.light-mode .photo-canvas{background:#111;}
+.photo-canvas svg{max-width:100%;max-height:100%;}
+.photo-bar{padding:8px 14px;border-top:1px solid var(--win-border);display:flex;align-items:center;gap:10px;}
+.photo-caption{font-family:var(--mono);font-size:11px;color:var(--muted2);flex:1;}
+.photo-nav{display:flex;gap:6px;}
+.photo-nav-btn{font-family:var(--mono);font-size:11px;padding:3px 10px;background:rgba(var(--accent-rgb),0.1);border:1px solid rgba(var(--accent-rgb),0.15);color:var(--text);border-radius:4px;cursor:pointer;transition:background .15s;}
+.photo-nav-btn:hover{background:rgba(var(--accent-rgb),0.22);}
+
+/* EXPERIENCE simplified */
+.exp-desc-short{font-size:12px;color:var(--muted2);line-height:1.6;margin-bottom:10px;}
+
+.win-title{flex:1;text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted2);pointer-events:none;}
+.win-pin{width:8px;height:8px;border-radius:50%;background:rgba(var(--accent-rgb),0.3);flex-shrink:0;}
+.win-body{flex:1;overflow-y:auto;overflow-x:hidden;}
+.win-body::-webkit-scrollbar{width:4px;}
+.win-body::-webkit-scrollbar-thumb{background:rgba(var(--accent-rgb),0.25);border-radius:2px;}
+.resize-handle{position:absolute;bottom:0;right:0;width:14px;height:14px;cursor:se-resize;z-index:10;}
+.resize-handle::before{content:'';position:absolute;bottom:3px;right:3px;width:6px;height:6px;border-right:2px solid rgba(var(--accent-rgb),0.3);border-bottom:2px solid rgba(var(--accent-rgb),0.3);border-radius:1px;}
+
+/* ABOUT */
+#win-about{width:540px;height:490px;top:60px;left:80px;}
+.about-body{padding:24px;}
+.about-kicker{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.about-kicker::before{content:'';width:20px;height:1px;background:var(--accent);flex-shrink:0;}
+.about-name{font-size:2.6rem;font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:14px;color:var(--text);}
+.about-name .outline{-webkit-text-stroke:1.5px var(--accent);color:transparent;display:block;}
+.about-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;}
+.chip{font-family:var(--mono);font-size:10px;padding:3px 8px;border:1px solid rgba(var(--accent-rgb),0.25);color:var(--accent);background:rgba(var(--accent-rgb),0.06);border-radius:3px;}
+.about-bio{font-size:13px;font-weight:300;color:var(--muted2);line-height:1.8;margin-bottom:18px;}
+.about-bio strong{color:var(--text);font-weight:500;}
+.about-links{display:flex;gap:8px;flex-wrap:wrap;}
+.alink{font-family:var(--mono);font-size:11px;padding:6px 14px;text-decoration:none;border-radius:4px;transition:all .15s;}
+.alink-solid{background:var(--accent);color:#fff;}.alink-solid:hover{background:var(--accent2);}
+.alink-ghost{border:1px solid rgba(var(--accent-rgb),0.28);color:var(--muted2);}.alink-ghost:hover{border-color:var(--accent);color:var(--accent);}
+.about-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--win-border);margin-top:18px;}
+.am-cell{background:var(--win-bg);padding:14px;transition:background .15s;}
+.am-cell:hover{background:rgba(var(--accent-rgb),0.04);}
+.am-val{font-size:1.8rem;font-weight:800;line-height:1;color:var(--accent);}
+.am-label{font-family:var(--mono);font-size:10px;color:var(--muted2);margin-top:4px;line-height:1.4;}
+
+/* EXPERIENCE */
+#win-exp{width:540px;height:580px;top:80px;left:160px;}
+.exp-body{padding:0;}
+.exp-section-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;padding:12px 16px 8px;border-bottom:1px solid var(--win-border);}
+.exp-item{padding:16px;border-bottom:1px solid rgba(var(--accent-rgb),0.07);transition:background .15s;position:relative;}
+.exp-item:hover{background:rgba(var(--accent-rgb),0.03);}
+.exp-item-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;}
+.exp-role{font-size:13px;font-weight:600;color:var(--text);}
+.exp-period{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap;margin-left:8px;}
+.exp-org{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:10px;}
+.exp-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;}
+.exp-bullets li{font-size:12px;color:var(--muted2);line-height:1.55;padding-left:14px;position:relative;}
+.exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:10px;top:1px;}
+.exp-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;}
+.etag{font-family:var(--mono);font-size:10px;padding:2px 6px;background:rgba(var(--accent-rgb),0.06);color:var(--muted2);border-radius:2px;border:1px solid rgba(var(--accent-rgb),0.1);}
+.exp-chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;}
+.exp-chip{font-family:var(--mono);font-size:10px;padding:3px 8px;background:rgba(var(--accent-rgb),0.08);color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.18);border-radius:3px;}
+.exp-current{position:absolute;top:18px;right:16px;width:7px;height:7px;border-radius:50%;background:#4ade80;}
+.exp-current::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid #4ade80;animation:pulse-ring 2s infinite;opacity:.5;}
+
+/* RESEARCH */
+#win-research{width:560px;height:460px;top:100px;left:240px;}
+.res-body{padding:0;}
+.res-item{display:grid;grid-template-columns:32px 1fr auto;gap:12px;padding:16px;border-bottom:1px solid rgba(var(--accent-rgb),0.07);align-items:start;transition:background .15s;}
+.res-item:hover{background:rgba(var(--accent-rgb),0.03);}
+.res-num{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:2px;}
+.res-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.4;}
+.res-venue{font-family:var(--mono);font-size:10px;color:var(--muted2);margin-bottom:6px;}
+.res-badge{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 6px;background:rgba(var(--accent-rgb),0.08);color:var(--accent);border-radius:2px;}
+.res-link{font-family:var(--mono);font-size:11px;color:var(--accent);text-decoration:none;white-space:nowrap;padding-top:2px;}
+.res-link:hover{text-decoration:underline;}
+
+/* SKILLS — dot matrix */
+#win-skills{width:420px;height:500px;top:90px;left:320px;}
+.skills-body{padding:16px;display:flex;flex-direction:column;gap:18px;}
+.sk-group-title{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid rgba(var(--accent-rgb),0.12);}
+.sk-item{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+.sk-name{font-family:var(--mono);font-size:11px;color:var(--text);width:116px;flex-shrink:0;}
+.sk-dots{display:flex;gap:3px;flex:1;}
+.sk-dot{width:8px;height:8px;border-radius:2px;background:rgba(var(--accent-rgb),0.1);border:1px solid rgba(var(--accent-rgb),0.12);transition:background .3s,transform .2s;}
+.sk-dot.on{background:var(--accent);border-color:var(--accent);}
+.sk-tag{font-family:var(--mono);font-size:9px;color:var(--muted2);width:58px;text-align:right;}
+
+/* CONTACT */
+#win-contact{width:380px;height:340px;top:110px;left:400px;}
+.contact-body{padding:20px;}
+.contact-title{font-size:1.4rem;font-weight:700;margin-bottom:6px;color:var(--text);}
+.contact-sub{font-family:var(--mono);font-size:11px;color:var(--muted2);margin-bottom:18px;line-height:1.6;}
+.contact-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(var(--accent-rgb),0.08);text-decoration:none;transition:padding-left .15s;}
+.contact-item:hover{padding-left:6px;}
+.contact-icon{font-size:15px;width:26px;text-align:center;flex-shrink:0;}
+.contact-label{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.contact-val{font-size:12px;color:var(--text);}
+.contact-arrow{margin-left:auto;color:var(--accent);font-size:12px;font-family:var(--mono);}
+
+/* PROJECTS */
+#win-projects{width:560px;height:460px;top:70px;left:200px;}
+.proj-body{padding:0;}
+.proj-hrow{display:grid;grid-template-columns:1fr 90px 100px;border-bottom:1px solid var(--win-border);padding:8px 16px;}
+.ph{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;}
+.proj-row{display:grid;grid-template-columns:1fr 90px 100px;border-bottom:1px solid rgba(var(--accent-rgb),0.06);padding:11px 16px;transition:background .15s;cursor:pointer;align-items:center;}
+.proj-row:hover{background:rgba(var(--accent-rgb),0.04);}
+.proj-name-cell{display:flex;flex-direction:column;gap:3px;}
+.proj-name{font-size:12px;font-weight:600;color:var(--text);}
+.proj-link{font-family:var(--mono);font-size:10px;color:var(--accent);text-decoration:none;}
+.proj-link:hover{text-decoration:underline;}
+.proj-date{font-family:var(--mono);font-size:10px;color:var(--muted2);}
+.proj-lang span{font-family:var(--mono);font-size:10px;padding:2px 6px;border-radius:2px;}
+.proj-loading{padding:32px 16px;font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center;}
+.proj-meta{font-family:var(--mono);font-size:10px;color:var(--muted);padding:7px 16px;border-top:1px solid var(--win-border);}
+
+/* TERMINAL */
+#win-terminal{width:580px;height:400px;top:120px;left:280px;}
+.term-wrap{background:#050303;height:100%;padding:16px;font-family:var(--mono);font-size:12px;color:#b0a090;line-height:1.7;cursor:text;overflow-y:auto;}
+body.light-mode .term-wrap{background:#1a1a1a;}
+.term-wrap::-webkit-scrollbar{width:4px;}
+.term-wrap::-webkit-scrollbar-thumb{background:rgba(var(--accent-rgb),0.2);border-radius:2px;}
+.term-boot{margin-bottom:12px;}
+.term-hi{color:var(--accent);}
+.term-muted{color:#444;}
+.term-hint{color:#444;font-size:11px;}
+.term-hint .h{color:var(--accent);}
+.term-line{margin-bottom:2px;}
+.term-prompt{color:var(--accent);}
+.term-cmd{color:#ddd;}
+.term-out{color:#888;}
+.term-out a{color:var(--accent);text-decoration:none;}
+.term-out a:hover{text-decoration:underline;}
+.term-err{color:#f87171;}
+.term-input-row{display:flex;align-items:center;gap:0;margin-top:6px;}
+#term-input{flex:1;background:transparent;border:none;outline:none;font-family:var(--mono);font-size:12px;color:#ddd;caret-color:var(--accent);}
+#term-input::placeholder{color:#333;}
+
+/* SETTINGS */
+#win-settings{width:500px;height:500px;top:80px;left:340px;}
+.settings-body{padding:22px;}
+.settings-h1{font-size:1.3rem;font-weight:700;margin-bottom:20px;color:var(--text);}
+.s-section{margin-bottom:22px;}
+.s-section-title{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--win-border);}
+.s-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.s-label{font-size:13px;color:var(--text);}
+.s-sub{font-size:11px;color:var(--muted2);margin-top:2px;}
+.mode-toggle{display:flex;border:1px solid var(--win-border);border-radius:6px;overflow:hidden;}
+.mode-btn{padding:5px 16px;background:transparent;border:none;color:var(--muted2);font-family:var(--mono);font-size:11px;cursor:pointer;transition:background .15s,color .15s;}
+.mode-btn.active{background:var(--accent);color:#fff;}
+.swatches{display:flex;gap:7px;flex-wrap:wrap;}
+.swatch{width:28px;height:28px;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:border-color .15s,transform .15s;position:relative;}
+.swatch:hover{transform:scale(1.1);}
+.swatch.active{border-color:var(--text);}
+.swatch .s-tip{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--bar);border:1px solid var(--win-border);color:var(--text);font-family:var(--mono);font-size:9px;padding:2px 5px;border-radius:3px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;}
+.swatch:hover .s-tip{opacity:1;}
+.wp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.wp-thumb{aspect-ratio:16/9;border-radius:5px;cursor:pointer;overflow:hidden;border:2px solid transparent;transition:border-color .15s,transform .1s;position:relative;}
+.wp-thumb:hover{border-color:rgba(var(--accent-rgb),0.5);transform:scale(1.02);}
+.wp-thumb.active{border-color:var(--accent);}
+.wp-lbl{position:absolute;bottom:0;left:0;right:0;font-family:var(--mono);font-size:9px;padding:4px 6px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:rgba(255,255,255,.85);}
+.wp-lbl.dark-lbl{color:#444;}
+
+/* DISPLAY PANEL */
+#display-panel{position:fixed;top:30px;right:8px;width:252px;background:var(--bar);border:1px solid var(--win-border);border-radius:8px;padding:14px;z-index:900;display:none;backdrop-filter:blur(24px);box-shadow:0 12px 40px rgba(0,0,0,.5);transition:background .3s;}
+#display-panel.open{display:block;}
+.dp-title{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;}
+.dp-row{margin-bottom:12px;}
+.dp-label{font-size:12px;color:var(--text);margin-bottom:6px;}
+.dp-slider{width:100%;accent-color:var(--accent);cursor:pointer;}
+.dp-slider-labels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--muted);margin-top:3px;}
+.dp-colors{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;}
+.dp-color{width:26px;height:26px;border-radius:5px;cursor:pointer;border:2px solid transparent;transition:border-color .15s,transform .1s;}
+.dp-color:hover{transform:scale(1.1);}
+.dp-color.active{border-color:var(--text);}
+.dp-divider{height:1px;background:var(--win-border);margin:10px 0;}
+.dp-mode-row{display:flex;align-items:center;justify-content:space-between;}
+.dp-mode-label{font-size:12px;color:var(--text);}
+.dp-toggle{display:flex;border:1px solid var(--win-border);border-radius:5px;overflow:hidden;}
+.dp-toggle-btn{padding:4px 10px;background:transparent;border:none;color:var(--muted2);font-family:var(--mono);font-size:10px;cursor:pointer;transition:background .15s,color .15s;}
+.dp-toggle-btn.active{background:var(--accent);color:#fff;}
+.dp-settings-link{font-family:var(--mono);font-size:11px;color:var(--accent);cursor:pointer;margin-top:10px;display:block;}
+.dp-settings-link:hover{text-decoration:underline;}
+
+/* EDUCATION */
+#win-edu{width:440px;height:420px;top:90px;left:180px;}
+.edu-body{padding:0;}
+.edu-item{padding:16px;border-bottom:1px solid rgba(var(--accent-rgb),0.08);transition:background .15s;}
+.edu-item:hover{background:rgba(var(--accent-rgb),0.03);}
+.edu-year{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:4px;}
+.edu-deg{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.edu-school{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:4px;}
+.edu-gpa{font-family:var(--mono);font-size:10px;color:var(--muted2);margin-bottom:8px;}
+.edu-courses{font-size:11px;color:var(--muted2);line-height:1.6;}
+</style>
+</head>
+<body>
+<div id="wallpaper"></div>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  <div class="tb-left">
+    <div class="tb-logo" onclick="openApp('about')" title="Umesh Yadav">UY</div>
+    <span class="tb-menu" onclick="openApp('about')">Portfolio</span>
+    <span class="tb-menu" onclick="openApp('exp')">Experience</span>
+    <span class="tb-menu" onclick="openApp('research')">Research</span>
+  </div>
+  <div class="tb-right">
+    <div class="tb-avail"><div class="tb-dot"></div><span>open to opportunities</span></div>
+    <div class="tb-icon-btn" id="tb-settings-btn" onclick="toggleDisplayPanel()" title="Display &amp; Settings">⚙︎</div>
+    <span id="tb-clock"></span>
+  </div>
+</div>
+
+<!-- DESKTOP ICONS -->
+<div id="desktop">
+  <div class="desk-icon" ondblclick="openApp('exp')"><div class="di-img">💼</div><div class="di-label">experience</div></div>
+  <div class="desk-icon" ondblclick="openApp('research')"><div class="di-img">📄</div><div class="di-label">research</div></div>
+  <div class="desk-icon" ondblclick="openApp('contact')"><div class="di-img">✉</div><div class="di-label">Contact</div></div>
+  <div class="desk-icon" ondblclick="openApp('about')"><div class="di-img file-icon">TXT</div><div class="di-label">about.txt</div></div>
+  <div class="desk-icon" ondblclick="openApp('edu')"><div class="di-img file-icon">EDU</div><div class="di-label">education.md</div></div>
+  <div class="desk-icon" ondblclick="openApp('personal')"><div class="di-img" style="background:rgba(var(--accent-rgb),0.18);border-color:rgba(var(--accent-rgb),0.25)">🗂</div><div class="di-label">Personal</div></div>
+  <div class="desk-icon" ondblclick="openApp('photos')"><div class="di-img" style="background:rgba(var(--accent-rgb),0.18);border-color:rgba(var(--accent-rgb),0.25)">🌅</div><div class="di-label">Photos</div></div>
+</div>
+
+<!-- DISPLAY PANEL -->
+<div id="display-panel">
+  <div class="dp-title">Display</div>
+  <div class="dp-row">
+    <div class="dp-label">Brightness</div>
+    <input type="range" class="dp-slider" id="brightness-slider" min="40" max="100" value="100" oninput="setBrightness(this.value)"/>
+    <div class="dp-slider-labels"><span>Dim</span><span id="brightness-val">100%</span><span>Bright</span></div>
+  </div>
+  <div class="dp-row">
+    <div class="dp-label">Theme color</div>
+    <div class="dp-colors" id="dp-colors">
+      <div class="dp-color active" style="background:#C58361" data-a="#C58361" data-a2="#a66b4a" data-r="197,131,97" onclick="applyTheme(this)" title="Brushed Copper"></div>
+      <div class="dp-color" style="background:#8792A3" data-a="#8792A3" data-a2="#6a7585" data-r="135,146,163" onclick="applyTheme(this)" title="Raw Titanium"></div>
+      <div class="dp-color" style="background:#0F5B46" data-a="#0F5B46" data-a2="#0a4233" data-r="15,91,70" onclick="applyTheme(this)" title="Deep Emerald"></div>
+      <div class="dp-color" style="background:#D4C19C" data-a="#D4C19C" data-a2="#b8a070" data-r="212,193,156" onclick="applyTheme(this)" title="Champagne Gold"></div>
+    </div>
+  </div>
+  <div class="dp-divider"></div>
+  <div class="dp-mode-row">
+    <span class="dp-mode-label">Appearance</span>
+    <div class="dp-toggle">
+      <button class="dp-toggle-btn" id="dp-light-btn" onclick="setMode('light')">Light</button>
+      <button class="dp-toggle-btn active" id="dp-dark-btn" onclick="setMode('dark')">Dark</button>
+    </div>
+  </div>
+  <span class="dp-settings-link" onclick="openApp('settings');closeDisplayPanel()">Open Settings...</span>
+</div>
+
+<!-- ABOUT WINDOW -->
+<div class="win" id="win-about">
+  <div class="win-header" onmousedown="startDrag(event,'win-about')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('about')" title="Close">X</div><div class="wc wc-min" onclick="minWin('about')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-about')" title="Maximize">⬍</div></div>
+    <div class="win-title">About</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="about-body">
+    <div class="about-kicker">AI Engineer · Full-Stack · ML Researcher</div>
+    <div class="about-name">UMESH<span class="outline">YADAV</span></div>
+    <div class="about-chips">
+      <span class="chip">AWS Certified</span><span class="chip">ML Researcher</span>
+      <span class="chip">4× Published</span><span class="chip">GPA 4.0</span>
+      <span class="chip">RAG Systems</span><span class="chip">Diffusion Models</span>
+      <span class="chip">Full-Stack</span><span class="chip">Medical AI</span>
+    </div>
+    <p class="about-bio">Building <strong>production AI systems</strong> end-to-end — from full-stack platform architecture to multi-modal ML pipelines. MS CS @ University of Toledo, specializing in <strong>diffusion models, RAG architectures,</strong> and <strong>adversarial ML</strong>. Funded research assistantship. 4 published papers.</p>
+    <div class="about-links">
+      <a href="https://github.com/umesh0518" target="_blank" class="alink alink-solid">$ github</a>
+      <a href="https://www.linkedin.com/in/umesh-yadav-29120a191" target="_blank" class="alink alink-ghost">linkedin</a>
+      <a href="https://scholar.google.com/citations?user=0sXDNMgAAAAJ&hl=en" target="_blank" class="alink alink-ghost">scholar</a>
+      <a href="https://umesh0518.github.io" target="_blank" class="alink alink-ghost">website</a>
+    </div>
+    <div class="about-metrics">
+      <div class="am-cell"><div class="am-val">4.0</div><div class="am-label">GPA<br>both degrees</div></div>
+      <div class="am-cell"><div class="am-val">4</div><div class="am-label">published<br>papers</div></div>
+      <div class="am-cell"><div class="am-val">6</div><div class="am-label">enterprise<br>clients</div></div>
+    </div>
+  </div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-about')"></div>
+</div>
+
+<!-- EXPERIENCE WINDOW -->
+<div class="win hidden" id="win-exp">
+  <div class="win-header" onmousedown="startDrag(event,'win-exp')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('exp')" title="Close">X</div><div class="wc wc-min" onclick="minWin('exp')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-exp')" title="Maximize">⬍</div></div>
+    <div class="win-title">Experience</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="exp-body">
+    <div class="exp-section-label">Current Role</div>
+    <div class="exp-item">
+      <div class="exp-current"></div>
+      <div class="exp-item-top"><div class="exp-role">Graduate Research Assistant · Software Engineer</div><div class="exp-period">Aug 2024 – Present</div></div>
+      <div class="exp-org">University of Toledo</div>
+      <div class="exp-desc-short">Sole engineer on a production AI-powered medical simulation platform deployed to 6 enterprise clients — nursing, anesthesiology, emergency medicine, and a U.S. federal defense training program.</div>
+      <div class="exp-tags">
+        <span class="etag">Multi-modal ML</span><span class="etag">BERT</span><span class="etag">Medical LLMs</span><span class="etag">RAG</span>
+        <span class="etag">PyTorch</span><span class="etag">React.js</span><span class="etag">Node.js</span>
+        <span class="etag">Docker</span><span class="etag">RabbitMQ</span><span class="etag">Apache Avro</span><span class="etag">AWS</span>
+      </div>
+    </div>
+
+    <div class="exp-section-label" style="padding-top:8px">Previous</div>
+    <div class="exp-item">
+      <div class="exp-item-top"><div class="exp-role">Software Engineer Intern</div><div class="exp-period">May – Aug 2024</div></div>
+      <div class="exp-org">My Evaluation Pal</div>
+      <div class="exp-desc-short">Built a real-time ML data pipeline (FastAPI + Kafka), automated ETL migrating 10,000+ records to PostgreSQL, and improved data transfer efficiency by 30% via WebSocket optimization.</div>
+      <div class="exp-chips">
+        <span class="exp-chip">12% latency cut</span>
+        <span class="exp-chip">30% transfer efficiency</span>
+        <span class="exp-chip">85% test coverage</span>
+      </div>
+      <div class="exp-tags">
+        <span class="etag">FastAPI</span><span class="etag">Kafka</span><span class="etag">Python</span>
+        <span class="etag">WebSocket</span><span class="etag">Pytest</span><span class="etag">PostgreSQL</span>
+      </div>
+    </div>
+  </div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-exp')"></div>
+</div>
+
+<!-- RESEARCH WINDOW -->
+<div class="win hidden" id="win-research">
+  <div class="win-header" onmousedown="startDrag(event,'win-research')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('research')" title="Close">X</div><div class="wc wc-min" onclick="minWin('research')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-research')" title="Maximize">⬍</div></div>
+    <div class="win-title">Research &amp; Publications</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="res-body">
+    <div class="res-item">
+      <div class="res-num">01</div>
+      <div><div class="res-title">Systematization of Knowledge: Security and Safety in the Model Context Protocol Ecosystem</div><div class="res-venue">arXiv preprint</div><span class="res-badge">MCP · Security · AI Safety</span></div>
+      <a href="https://arxiv.org/abs/2512.08290" target="_blank" class="res-link">arXiv →</a>
+    </div>
+    <div class="res-item">
+      <div class="res-num">02</div>
+      <div><div class="res-title">Exploring Secure ML Through Payload Injection and FGSM Attacks on ResNet-50</div><div class="res-venue">SVCC 2025</div><span class="res-badge">Adversarial ML · SVCC 2025</span></div>
+      <a href="https://arxiv.org/abs/2501.02147" target="_blank" class="res-link">arXiv →</a>
+    </div>
+    <div class="res-item">
+      <div class="res-num">03</div>
+      <div><div class="res-title">Chunking, Retrieval, and Re-ranking: An Empirical Evaluation of RAG Architectures</div><div class="res-venue">arXiv preprint</div><span class="res-badge">RAG · NLP · IR</span></div>
+      <a href="https://doi.org/10.48550/arXiv.2601.15457" target="_blank" class="res-link">arXiv →</a>
+    </div>
+    <div class="res-item">
+      <div class="res-num">04</div>
+      <div><div class="res-title">SoK: Agentic Retrieval-Augmented Generation — Taxonomy, Architectures, Evaluation, and Research Directions</div><div class="res-venue">arXiv preprint</div><span class="res-badge">Agentic RAG · Survey</span></div>
+      <a href="https://arxiv.org/pdf/2603.07379" target="_blank" class="res-link">arXiv →</a>
+    </div>
+    <div style="padding:12px 16px;"><a href="https://scholar.google.com/citations?user=0sXDNMgAAAAJ&hl=en" target="_blank" class="alink alink-ghost" style="font-size:11px">All publications on Google Scholar →</a></div>
+  </div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-research')"></div>
+</div>
+
+<!-- SKILLS WINDOW -->
+<div class="win hidden" id="win-skills">
+  <div class="win-header" onmousedown="startDrag(event,'win-skills')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('skills')" title="Close">X</div><div class="wc wc-min" onclick="minWin('skills')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-skills')" title="Maximize">⬍</div></div>
+    <div class="win-title">Tech Stack</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="skills-body" id="skills-body"></div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-skills')"></div>
+</div>
+
+<!-- CONTACT WINDOW -->
+<div class="win hidden" id="win-contact">
+  <div class="win-header" onmousedown="startDrag(event,'win-contact')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('contact')" title="Close">X</div><div class="wc wc-min" onclick="minWin('contact')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-contact')" title="Maximize">⬍</div></div>
+    <div class="win-title">Contact</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="contact-body">
+    <div class="contact-title">Get in touch</div>
+    <div class="contact-sub">Open to full-time roles in AI/ML engineering and research.<br>Graduating May 2026.</div>
+    <a href="https://www.linkedin.com/in/umesh-yadav-29120a191" target="_blank" class="contact-item"><div class="contact-icon">💼</div><div><div class="contact-label">LinkedIn</div><div class="contact-val">umesh-yadav-29120a191</div></div><div class="contact-arrow">→</div></a>
+    <a href="https://github.com/umesh0518" target="_blank" class="contact-item"><div class="contact-icon">⬡</div><div><div class="contact-label">GitHub</div><div class="contact-val">github.com/umesh0518</div></div><div class="contact-arrow">→</div></a>
+    <a href="https://scholar.google.com/citations?user=0sXDNMgAAAAJ&hl=en" target="_blank" class="contact-item"><div class="contact-icon">📖</div><div><div class="contact-label">Google Scholar</div><div class="contact-val">4 published papers</div></div><div class="contact-arrow">→</div></a>
+    <a href="https://umesh0518.github.io" target="_blank" class="contact-item"><div class="contact-icon">🌐</div><div><div class="contact-label">Personal Site</div><div class="contact-val">umesh0518.github.io</div></div><div class="contact-arrow">→</div></a>
+    <div class="contact-item" style="cursor:default"><div class="contact-icon">📍</div><div><div class="contact-label">Location</div><div class="contact-val">Toledo, OH · Open to relocation</div></div></div>
+  </div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-contact')"></div>
+</div>
+
+<!-- PROJECTS WINDOW -->
+<div class="win hidden" id="win-projects">
+  <div class="win-header" onmousedown="startDrag(event,'win-projects')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('projects')" title="Close">X</div><div class="wc wc-min" onclick="minWin('projects')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-projects')" title="Maximize">⬍</div></div>
+    <div class="win-title">Projects — GitHub</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="proj-body">
+    <div class="proj-hrow"><div class="ph">repository</div><div class="ph">updated</div><div class="ph">language</div></div>
+    <div id="proj-list"><div class="proj-loading">Syncing from GitHub...</div></div>
+    <div class="proj-meta" id="proj-meta"></div>
+  </div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-projects')"></div>
+</div>
+
+<!-- TERMINAL WINDOW -->
+<div class="win hidden" id="win-terminal">
+  <div class="win-header" onmousedown="startDrag(event,'win-terminal')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('terminal')" title="Close">X</div><div class="wc wc-min" onclick="minWin('terminal')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-terminal')" title="Maximize">⬍</div></div>
+    <div class="win-title">Terminal — guest@portfolio</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body">
+    <div class="term-wrap" id="term-body" onclick="document.getElementById('term-input').focus()">
+      <div class="term-boot">
+        <div class="term-line"><span class="term-hi">Umesh Portfolio Terminal v1.0</span></div>
+        <div class="term-line term-muted">Type <span class="term-hi">help</span> for all commands.</div>
+        <div style="height:6px"></div>
+        <div class="term-hint">Hints: <span class="h">about</span> · <span class="h">skills</span> · <span class="h">experience</span> · <span class="h">research</span> · <span class="h">education</span> · <span class="h">contact</span></div>
+        <div class="term-hint"><span class="h">open &lt;app&gt;</span> launches a window — e.g. <span class="h">open research</span></div>
+        <div class="term-hint"><span class="h">github</span> · <span class="h">scholar</span> · <span class="h">clear</span></div>
+        <div style="height:8px"></div>
+      </div>
+      <div id="term-history"></div>
+      <div class="term-input-row">
+        <span class="term-prompt">guest@portfolio:~$&nbsp;</span>
+        <input type="text" id="term-input" autocomplete="off" spellcheck="false" onkeydown="termKey(event)" placeholder="type a command..."/>
+      </div>
+    </div>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-terminal')"></div>
+</div>
+
+<!-- SETTINGS WINDOW -->
+<div class="win hidden" id="win-settings">
+  <div class="win-header" onmousedown="startDrag(event,'win-settings')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('settings')" title="Close">X</div><div class="wc wc-min" onclick="minWin('settings')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-settings')" title="Maximize">⬍</div></div>
+    <div class="win-title">Settings</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="settings-body">
+    <div class="settings-h1">Settings</div>
+    <div class="s-section">
+      <div class="s-section-title">Appearance</div>
+      <div class="s-row">
+        <div><div class="s-label">Theme mode</div><div class="s-sub">Light or dark interface</div></div>
+        <div class="mode-toggle">
+          <button class="mode-btn" id="s-light-btn" onclick="setMode('light')">Light</button>
+          <button class="mode-btn active" id="s-dark-btn" onclick="setMode('dark')">Dark</button>
         </div>
       </div>
-    </section>
-
-    <!-- Projects Section (Auto-Updated) -->
-    <section id="projects">
-      <div class="container">
-        <h2 class="section-title">// LIVE PROJECTS</h2>
-        <p class="update-notice">Auto-updating from GitHub API</p>
-        <div id="projects-grid" class="projects-grid">
-          <div class="loading">Loading projects...</div>
+      <div class="s-row" style="align-items:flex-start">
+        <div><div class="s-label">Accent color</div><div class="s-sub">Luxury tech palettes</div></div>
+        <div class="swatches" id="settings-swatches">
+          <div class="swatch active" style="background:#C58361" data-a="#C58361" data-a2="#a66b4a" data-r="197,131,97" onclick="applyTheme(this)"><div class="s-tip">Brushed Copper</div></div>
+          <div class="swatch" style="background:#8792A3" data-a="#8792A3" data-a2="#6a7585" data-r="135,146,163" onclick="applyTheme(this)"><div class="s-tip">Raw Titanium</div></div>
+          <div class="swatch" style="background:#0F5B46" data-a="#0F5B46" data-a2="#0a4233" data-r="15,91,70" onclick="applyTheme(this)"><div class="s-tip">Deep Emerald</div></div>
+          <div class="swatch" style="background:#D4C19C" data-a="#D4C19C" data-a2="#b8a070" data-r="212,193,156" onclick="applyTheme(this)"><div class="s-tip">Champagne Gold</div></div>
         </div>
       </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-      <div class="container">
-        <h2 class="section-title">// EDUCATION</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Master's in Computer Science and Engineering</h3>
-              <p class="company">The University of Toledo</p>
-              <p class="period">Aug 2024 - May 2026 | GPA: 4.0</p>
-              <p>
-                Coursework: Artificial Intelligence, Machine Learning,
-                Biologically-Inspired Computing, Fuzzy Systems, Image Analysis,
-                Computer Vision
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Bachelor's in Computer Science</h3>
-              <p class="company">Youngstown State University</p>
-              <p class="period">Aug 2022 - May 2024 | GPA: 4.0</p>
-              <p>
-                Coursework: Data Structures and Algorithms, Object-Oriented
-                Programming, Database Design, Computer Organization, Operating
-                Systems, Software Engineering
-              </p>
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="s-section">
+      <div class="s-section-title">Wallpaper</div>
+      <div class="wp-grid">
+        <div class="wp-thumb active" onclick="setWallpaper('default',this)" style="background:radial-gradient(ellipse at 65% 40%,#2a1008,#050303 60%)"><div class="wp-lbl">Obsidian Night</div></div>
+        <div class="wp-thumb" onclick="setWallpaper('midnight',this)" style="background:radial-gradient(ellipse at 30% 60%,#0a1430,#05080f 60%)"><div class="wp-lbl">Midnight Slate</div></div>
+        <div class="wp-thumb" onclick="setWallpaper('titanium',this)" style="background:radial-gradient(ellipse at 50% 50%,#151A22,#0B0E14 70%)"><div class="wp-lbl">Abyss Blue</div></div>
+        <div class="wp-thumb" onclick="setWallpaper('ceramic',this)" style="background:linear-gradient(135deg,#FAFAFA,#EFEFF0)"><div class="wp-lbl dark-lbl">Ceramic White</div></div>
+        <div class="wp-thumb" onclick="setWallpaper('spacegray',this)" style="background:radial-gradient(ellipse at 50% 50%,#2C2C2E,#1C1C1C 70%)"><div class="wp-lbl">Space Gray</div></div>
+        <div class="wp-thumb" onclick="setWallpaper('forest',this)" style="background:radial-gradient(ellipse at 40% 30%,#0a2010,#020804 65%)"><div class="wp-lbl">Deep Forest</div></div>
       </div>
-    </section>
+    </div>
+  </div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-settings')"></div>
+</div>
 
-    <!-- Experience Section -->
-    <section id="work">
-      <div class="container">
-        <h2 class="section-title">// EXPERIENCE</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Graduate Research Assistant (Software Developer)</h3>
-              <p class="company">The University of Toledo</p>
-              <p class="period">Aug 2024 - Present</p>
-              <p class="summary">
-                Scaled Level-1 ACS-accredited medical simulation platform to
-                multiple enterprise clients including federal agencies and R1
-                universities.
-              </p>
-            </div>
-          </div>
+<!-- EDUCATION WINDOW -->
+<div class="win hidden" id="win-edu">
+  <div class="win-header" onmousedown="startDrag(event,'win-edu')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('edu')" title="Close">X</div><div class="wc wc-min" onclick="minWin('edu')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-edu')" title="Maximize">⬍</div></div>
+    <div class="win-title">Education</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="edu-body">
+    <div class="edu-item">
+      <div class="edu-year">2024 → 2026</div>
+      <div class="edu-deg">Master of Science — Computer Science &amp; Engineering</div>
+      <div class="edu-school">University of Toledo</div>
+      <div class="edu-gpa">GPA 4.0 · AI Specialization · Fully-funded Research Assistantship</div>
+      <div class="edu-courses">AI · Machine Learning · Biologically-Inspired Computing · Fuzzy Systems · Image Analysis · Computer Vision</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2022 → 2024</div>
+      <div class="edu-deg">Bachelor of Science — Computer Science</div>
+      <div class="edu-school">Youngstown State University</div>
+      <div class="edu-gpa">GPA 4.0 · Aug 2022 – May 2024</div>
+      <div class="edu-courses">Data Structures · OOP · Database Design · OS · Software Engineering · Computer Organization</div>
+    </div>
+    <div class="edu-item" style="background:rgba(var(--accent-rgb),0.03)">
+      <div class="edu-year">ACHIEVEMENT</div>
+      <div class="edu-deg">Perfect 4.0 GPA — Both Degrees</div>
+      <div class="edu-school" style="color:#4ade80">80+ Credits · 6 years · 4 published papers</div>
+      <div class="edu-courses">Maintained a flawless academic record across both programs while conducting active research, publishing 4 papers, and building a production AI platform for federal and enterprise clients.</div>
+    </div>
+  </div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-edu')"></div>
+</div>
 
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Software Engineer Intern</h3>
-              <p class="company">My Evaluation Pal</p>
-              <p class="period">May 2024 - Aug 2024</p>
-              <p class="summary">
-                Built real-time data pipeline using FastAPI and Apache Kafka,
-                reducing processing delays by 12%.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <h3>Student Assistant</h3>
-              <p class="company">Youngstown State University</p>
-              <p class="period">Aug 2023 - May 2024</p>
-              <p class="summary">
-                Automated enrollment reporting pipeline using Python, SQL
-                Server, and Power BI.
-              </p>
-            </div>
-          </div>
-        </div>
+<!-- PERSONAL FOLDER WINDOW -->
+<div class="win hidden" id="win-personal">
+  <div class="win-header" onmousedown="startDrag(event,'win-personal')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('personal')" title="Close">X</div><div class="wc wc-min" onclick="minWin('personal')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-personal')" title="Maximize">⬍</div></div>
+    <div class="win-title">Personal</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body">
+    <div class="folder-toolbar">🗂 Personal — 2 items</div>
+    <div class="folder-grid">
+      <div class="folder-item" ondblclick="openApp('hobbies')">
+        <div class="folder-item-icon md-icon">MD</div>
+        <div class="folder-item-name">hobbies.md</div>
       </div>
-    </section>
-
-    <!-- Research Section -->
-    <section id="research">
-      <div class="container">
-        <h2 class="section-title">// RESEARCH & PUBLICATIONS</h2>
-        <div class="research-grid">
-          <div class="research-card">
-            <h3>
-              Systematization of Knowledge: Security and Safety in the Model
-              Context Protocol Ecosystem
-            </h3>
-            <p>
-              Comprehensive analysis of security vulnerabilities in MCP-based AI
-              systems
-            </p>
-            <a
-              href="https://arxiv.org/abs/2512.08290"
-              target="_blank"
-              class="link"
-              >Read Paper →</a
-            >
-          </div>
-          <div class="research-card">
-            <h3>
-              Exploring Secure Machine Learning Through Payload Injection and
-              FGSM Attacks on ResNet-50
-            </h3>
-            <p>
-              SVCC 2025 - Investigating adversarial attacks on deep learning
-              models
-            </p>
-            <a
-              href="https://arxiv.org/abs/2501.02147"
-              target="_blank"
-              class="link"
-              >Read Paper →</a
-            >
-          </div>
-          <div class="research-card">
-            <h3>
-              Chunking, Retrieval, and Re-ranking: An Empirical Evaluation of
-              RAG Architectures
-            </h3>
-            <p>
-              Evaluating RAG architectures for policy document question
-              answering
-            </p>
-            <a
-              href="https://doi.org/10.48550/arXiv.2601.15457"
-              target="_blank"
-              class="link"
-              >Read Paper →</a
-            >
-          </div>
-        </div>
-        <div class="scholar-cta">
-          <a
-            href="https://scholar.google.com/citations?user=0sXDNMgAAAAJ&hl=en"
-            target="_blank"
-            class="btn btn-large"
-          >
-            View All Publications on Google Scholar
-          </a>
-        </div>
+      <div class="folder-item" ondblclick="openApp('hobbies')">
+        <div class="folder-item-icon md-icon">MD</div>
+        <div class="folder-item-name">interests.md</div>
       </div>
-    </section>
+    </div>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-personal')"></div>
+</div>
 
-    <!-- Certifications Section -->
-    <section id="certifications">
-      <div class="container">
-        <h2 class="section-title">// CERTIFICATIONS</h2>
-        <div class="research-grid">
-          <div class="research-card">
-            <h3>AWS Certified Developer – Associate</h3>
-            <p>Amazon Web Services | Jan 2025</p>
-            <a
-              href="https://www.credly.com/badges/54365bf8-76b1-477c-a024-9d67f9bdae39/public_url"
-              target="_blank"
-              class="link"
-              >View Certificate →</a
-            >
-          </div>
-          <div class="research-card">
-            <h3>
-              Introduction to Portfolio Construction and Analysis with Python
-            </h3>
-            <p>EDHEC Business School | Feb 2021</p>
-            <a
-              href="https://www.coursera.org/account/accomplishments/verify/WRSQZAC9X9UJ"
-              target="_blank"
-              class="link"
-              >View Certificate →</a
-            >
-          </div>
-          <div class="research-card">
-            <h3>Social Psychology</h3>
-            <p>Wesleyan University | Aug 2020</p>
-            <a
-              href="https://www.coursera.org/account/accomplishments/verify/96LXFL73W4NQ"
-              target="_blank"
-              class="link"
-              >View Certificate →</a
-            >
-          </div>
+<!-- HOBBIES WINDOW -->
+<div class="win hidden" id="win-hobbies">
+  <div class="win-header" onmousedown="startDrag(event,'win-hobbies')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('hobbies')" title="Close">X</div><div class="wc wc-min" onclick="minWin('hobbies')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-hobbies')" title="Maximize">⬍</div></div>
+    <div class="win-title">hobbies.md</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="hobbies-body">
+    <div class="hobbies-title">Interests &amp; Hobbies</div>
+    <div class="hobbies-sub"># personal/hobbies.md · last edited today</div>
+    <div class="hobby-item">
+      <div class="hobby-emoji">🎾</div>
+      <div><div class="hobby-name">Tennis</div><div class="hobby-desc">Flat to moderate topspin baseline game. Fan of Federer &amp; Djokovic. Recently picked up a Wilson BLX Blade 98.</div></div>
+    </div>
+    <div class="hobby-item">
+      <div class="hobby-emoji">⚽</div>
+      <div><div class="hobby-name">Soccer</div><div class="hobby-desc">Love watching and playing pickup games. Grew up following the sport closely.</div></div>
+    </div>
+    <div class="hobby-item">
+      <div class="hobby-emoji">🛹</div>
+      <div><div class="hobby-name">Skateboarding</div><div class="hobby-desc">Street skating. Enjoy the creativity and the culture around it.</div></div>
+    </div>
+    <div class="hobby-item">
+      <div class="hobby-emoji">📸</div>
+      <div><div class="hobby-name">Photography</div><div class="hobby-desc">Sunset and landscape photography. Check the Photos folder for some shots.</div></div>
+    </div>
+  </div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-hobbies')"></div>
+</div>
+
+<!-- PHOTOS FOLDER WINDOW -->
+<div class="win hidden" id="win-photos">
+  <div class="win-header" onmousedown="startDrag(event,'win-photos')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('photos')" title="Close">X</div><div class="wc wc-min" onclick="minWin('photos')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-photos')" title="Maximize">⬍</div></div>
+    <div class="win-title">Photos — Sunsets</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body">
+    <div class="folder-toolbar">🌅 Sunsets · 2 photos</div>
+    <div class="folder-grid">
+      <div class="folder-item" ondblclick="openPhoto(0)">
+        <div class="folder-item-icon" style="overflow:hidden;padding:0;background:linear-gradient(160deg,#ff6b35,#f7931e,#ffcd3c,#ff6b35 80%)">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+            <defs><radialGradient id="sg1" cx="50%" cy="100%"><stop offset="0%" stop-color="#ffcd3c"/><stop offset="40%" stop-color="#f7931e"/><stop offset="100%" stop-color="#c0392b"/></radialGradient></defs>
+            <rect width="48" height="48" fill="url(#sg1)"/>
+            <circle cx="24" cy="30" r="10" fill="#ffcd3c" opacity="0.9"/>
+            <rect y="32" width="48" height="16" fill="#1a0a00" opacity="0.6"/>
+            <line x1="24" y1="20" x2="24" y2="14" stroke="#ffcd3c" stroke-width="1.5" opacity="0.6"/>
+            <line x1="24" y1="20" x2="30" y2="16" stroke="#ffcd3c" stroke-width="1" opacity="0.4"/>
+            <line x1="24" y1="20" x2="18" y2="16" stroke="#ffcd3c" stroke-width="1" opacity="0.4"/>
+          </svg>
         </div>
+        <div class="folder-item-name">sunset_01.jpg</div>
       </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-      <div class="container">
-        <h2 class="section-title">// TECH STACK</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Languages</h3>
-            <div class="skill-tags">
-              <span>Python</span>
-              <span>JavaScript</span>
-              <span>TypeScript</span>
-              <span>Java</span>
-              <span>Node.js</span>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Frameworks</h3>
-            <div class="skill-tags">
-              <span>FastAPI</span>
-              <span>Flask</span>
-              <span>React</span>
-              <span>Express</span>
-              <span>Bootstrap</span>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Cloud & DevOps</h3>
-            <div class="skill-tags">
-              <span>AWS</span>
-              <span>GCP</span>
-              <span>Docker</span>
-              <span>Kubernetes</span>
-              <span>Terraform</span>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Data & AI</h3>
-            <div class="skill-tags">
-              <span>PostgreSQL</span>
-              <span>MongoDB</span>
-              <span>Kafka</span>
-              <span>RAG</span>
-              <span>Langchain</span>
-            </div>
-          </div>
+      <div class="folder-item" ondblclick="openPhoto(1)">
+        <div class="folder-item-icon" style="overflow:hidden;padding:0;background:linear-gradient(160deg,#2c3e6b,#e96c3e,#ffb347)">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+            <defs><linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2c3e6b"/><stop offset="55%" stop-color="#e96c3e"/><stop offset="100%" stop-color="#ffb347"/></linearGradient></defs>
+            <rect width="48" height="48" fill="url(#sg2)"/>
+            <circle cx="36" cy="28" r="8" fill="#ffb347" opacity="0.95"/>
+            <rect y="36" width="48" height="12" fill="#0a0f1a" opacity="0.7"/>
+            <rect x="4" y="34" width="6" height="8" rx="1" fill="#0a0f1a" opacity="0.8"/>
+            <rect x="14" y="30" width="4" height="12" rx="1" fill="#0a0f1a" opacity="0.8"/>
+            <rect x="24" y="33" width="8" height="9" rx="1" fill="#0a0f1a" opacity="0.8"/>
+          </svg>
         </div>
+        <div class="folder-item-name">sunset_02.jpg</div>
       </div>
-    </section>
+    </div>
+  </div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-photos')"></div>
+</div>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Umesh Yadav. Built with GitHub API</p>
-        <p class="footer-note">
-          This site auto-updates when I push new code. Pretty cool, right?
-        </p>
+<!-- PHOTO VIEWER WINDOW -->
+<div class="win hidden" id="win-photo-viewer">
+  <div class="win-header" onmousedown="startDrag(event,'win-photo-viewer')">
+    <div class="win-controls"><div class="wc wc-close" onclick="closeWin('photo-viewer')" title="Close">X</div><div class="wc wc-min" onclick="minWin('photo-viewer')" title="Minimize">▬</div><div class="wc wc-max" onclick="maxWin('win-photo-viewer')" title="Maximize">⬍</div></div>
+    <div class="win-title" id="photo-viewer-title">Photo Viewer</div><div class="win-pin"></div>
+  </div>
+  <div class="win-body"><div class="photo-viewer-body">
+    <div class="photo-canvas" id="photo-canvas"></div>
+    <div class="photo-bar">
+      <span class="photo-caption" id="photo-caption"></span>
+      <div class="photo-nav">
+        <button class="photo-nav-btn" onclick="navigatePhoto(-1)">← Prev</button>
+        <button class="photo-nav-btn" onclick="navigatePhoto(1)">Next →</button>
       </div>
-    </footer>
+    </div>
+  </div></div>
+  <div class="resize-handle" onmousedown="startResize(event,'win-photo-viewer')"></div>
+</div>
 
-    <script src="script.js"></script>
-  </body>
+<!-- DOCK -->
+<div id="dock">
+  <div class="dock-btn" id="dock-about" onclick="openApp('about')">🧑‍💻<div class="tooltip">About</div></div>
+  <div class="dock-btn" id="dock-exp" onclick="openApp('exp')">💼<div class="tooltip">Experience</div></div>
+  <div class="dock-btn" id="dock-contact" onclick="openApp('contact')">✉<div class="tooltip">Contact</div></div>
+  <div class="dock-btn" id="dock-edu" onclick="openApp('edu')">🎓<div class="tooltip">Education</div></div>
+  <div class="dock-btn" id="dock-research" onclick="openApp('research')">📄<div class="tooltip">Research</div></div>
+  <div class="dock-btn" id="dock-projects" onclick="openApp('projects')">🔍<div class="tooltip">Projects</div></div>
+  <div class="dock-btn" id="dock-skills" onclick="openApp('skills')" style="font-size:16px">▦<div class="tooltip">Tech Stack</div></div>
+  <div class="dock-btn" id="dock-terminal" onclick="openApp('terminal')">⌨<div class="tooltip">Terminal</div></div>
+  <div class="dock-btn" id="dock-settings" onclick="openApp('settings')" style="font-size:15px">⚙︎<div class="tooltip">Settings</div></div>
+</div>
+
+<script>
+// CLOCK
+function updateClock(){
+  const now=new Date();
+  document.getElementById('tb-clock').textContent=now.toLocaleDateString('en-US',{weekday:'short',day:'2-digit',month:'short'})+' '+now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:false});
+}
+updateClock();setInterval(updateClock,1000);
+
+// WALLPAPER INIT
+const WP={
+  default:'radial-gradient(ellipse 80% 60% at 65% 40%,rgba(50,28,14,.5) 0%,transparent 65%),radial-gradient(ellipse 50% 70% at 20% 75%,rgba(30,15,5,.4) 0%,transparent 55%),linear-gradient(150deg,#030202 0%,#0a0603 40%,#050302 70%,#020101 100%)',
+  midnight:'radial-gradient(ellipse 80% 60% at 30% 60%,rgba(10,20,50,.7) 0%,transparent 65%),linear-gradient(150deg,#020408 0%,#060b18 40%,#030610 70%,#020306 100%)',
+  titanium:'radial-gradient(ellipse 70% 60% at 50% 50%,rgba(21,26,34,.9) 0%,rgba(11,14,20,1) 70%),linear-gradient(150deg,#0B0E14,#151A22 50%,#0B0E14)',
+  ceramic:'radial-gradient(ellipse 80% 60% at 50% 30%,rgba(220,240,230,.6) 0%,transparent 65%),linear-gradient(150deg,#FAFAFA,#F0F5F2 50%,#FAFAFA)',
+  spacegray:'radial-gradient(ellipse 70% 60% at 50% 50%,rgba(44,44,46,.9) 0%,rgba(28,28,28,1) 70%),linear-gradient(150deg,#1C1C1C,#2C2C2E 50%,#1C1C1C)',
+  forest:'radial-gradient(ellipse 80% 60% at 40% 30%,rgba(10,32,16,.6) 0%,transparent 65%),linear-gradient(150deg,#020804,#0a2010 40%,#020804)'
+};
+let currentWP='titanium',currentMode='dark';
+document.getElementById('wallpaper').style.background=WP.titanium;
+
+// WIN REGISTRY
+const wins={about:'win-about',exp:'win-exp',research:'win-research',skills:'win-skills',contact:'win-contact',projects:'win-projects',terminal:'win-terminal',settings:'win-settings',edu:'win-edu',personal:'win-personal',hobbies:'win-hobbies',photos:'win-photos','photo-viewer':'win-photo-viewer'};
+let zTop=200;
+const minimized={},positioned={};
+const defPos={about:[80,60],exp:[160,80],research:[240,100],skills:[340,90],contact:[420,110],projects:[210,70],terminal:[290,120],settings:[350,80],edu:[190,90],personal:[110,130],hobbies:[170,150],photos:[150,130],'photo-viewer':[180,90]};
+
+function openApp(id){
+  const win=document.getElementById(wins[id]);if(!win)return;
+  if(win.classList.contains('hidden')||minimized[id]){
+    win.classList.remove('hidden');minimized[id]=false;
+    if(!positioned[id]){const[l,t]=defPos[id]||[100,80];win.style.left=l+'px';win.style.top=t+'px';positioned[id]=true;}
+  }
+  focusWin(id);updateDockActive();
+  if(id==='projects'&&!win._pl){loadProjects();win._pl=true;}
+  if(id==='skills'&&!win._sb){buildSkills();win._sb=true;}
+}
+function closeWin(id){document.getElementById(wins[id]).classList.add('hidden');minimized[id]=false;updateDockActive();}
+function minWin(id){document.getElementById(wins[id]).classList.add('hidden');minimized[id]=true;updateDockActive();}
+function maxWin(wId){
+  const w=document.getElementById(wId);
+  if(w._max){w.style.left=w._pl;w.style.top=w._pt;w.style.width=w._pw;w.style.height=w._ph;w._max=false;}
+  else{w._pl=w.style.left;w._pt=w.style.top;w._pw=w.style.width;w._ph=w.style.height;w.style.left='0';w.style.top='28px';w.style.width='100vw';w.style.height='calc(100vh - 100px)';w._max=true;}
+}
+function focusWin(id){
+  document.querySelectorAll('.win').forEach(w=>w.classList.remove('focused'));
+  const w=document.getElementById(wins[id]);w.classList.add('focused');w.style.zIndex=++zTop;
+}
+function updateDockActive(){
+  Object.keys(wins).forEach(id=>{
+    const btn=document.getElementById('dock-'+id);if(!btn)return;
+    const win=document.getElementById(wins[id]);
+    btn.classList.toggle('active',win&&!win.classList.contains('hidden'));
+  });
+}
+document.querySelectorAll('.win').forEach(win=>{
+  win.addEventListener('mousedown',()=>{const id=Object.keys(wins).find(k=>wins[k]===win.id);if(id)focusWin(id);});
+});
+
+// DRAG
+let dragging=null,dox=0,doy=0;
+function startDrag(e,wId){
+  if(e.target.classList.contains('wc'))return;
+  dragging=document.getElementById(wId);
+  const r=dragging.getBoundingClientRect();dox=e.clientX-r.left;doy=e.clientY-r.top;e.preventDefault();
+}
+document.addEventListener('mousemove',e=>{
+  if(!dragging)return;
+  dragging.style.left=Math.max(0,Math.min(e.clientX-dox,window.innerWidth-dragging.offsetWidth))+'px';
+  dragging.style.top=Math.max(28,Math.min(e.clientY-doy,window.innerHeight-72-dragging.offsetHeight))+'px';
+});
+document.addEventListener('mouseup',()=>{dragging=null;});
+
+// RESIZE
+let resizing=null,rsx=0,rsy=0,rsw=0,rsh=0;
+function startResize(e,wId){
+  resizing=document.getElementById(wId);rsx=e.clientX;rsy=e.clientY;rsw=resizing.offsetWidth;rsh=resizing.offsetHeight;e.preventDefault();e.stopPropagation();
+}
+document.addEventListener('mousemove',e=>{if(!resizing)return;resizing.style.width=Math.max(300,rsw+e.clientX-rsx)+'px';resizing.style.height=Math.max(200,rsh+e.clientY-rsy)+'px';});
+document.addEventListener('mouseup',()=>{resizing=null;});
+
+// DISPLAY PANEL
+function toggleDisplayPanel(){document.getElementById('display-panel').classList.toggle('open');}
+function closeDisplayPanel(){document.getElementById('display-panel').classList.remove('open');}
+document.addEventListener('click',e=>{
+  const p=document.getElementById('display-panel');
+  if(!p.contains(e.target)&&!e.target.closest('#tb-settings-btn'))p.classList.remove('open');
+});
+function setBrightness(v){document.documentElement.style.filter=`brightness(${v/100})`;document.getElementById('brightness-val').textContent=v+'%';}
+
+// THEME
+function applyTheme(el){
+  const a=el.dataset.a,a2=el.dataset.a2,r=el.dataset.r;
+  document.documentElement.style.setProperty('--accent',a);
+  document.documentElement.style.setProperty('--accent2',a2);
+  document.documentElement.style.setProperty('--accent-rgb',r);
+  document.querySelectorAll('[data-a]').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll(`[data-a="${a}"]`).forEach(s=>s.classList.add('active'));
+}
+
+// MODE
+function setMode(m){
+  currentMode=m;
+  document.body.classList.toggle('light-mode',m==='light');
+  ['dp-light-btn','dp-dark-btn','s-light-btn','s-dark-btn'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    el.classList.toggle('active',id.includes(m));
+  });
+  const wp=document.getElementById('wallpaper');
+  if(m==='light'&&(currentWP==='titanium'||currentWP==='default'||currentWP==='midnight'))wp.style.background=WP.ceramic;
+  else wp.style.background=WP[currentWP]||WP.titanium;
+}
+
+// WALLPAPER
+function setWallpaper(type,el){
+  currentWP=type;
+  document.querySelectorAll('.wp-thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('wallpaper').style.background=WP[type]||WP.titanium;
+}
+
+// PHOTO VIEWER
+const PHOTOS=[
+  {title:'sunset_01.jpg',caption:'Golden hour — warm hues over the horizon',svg:`<svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%"><defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a0a30"/><stop offset="55%" stop-color="#d44020"/><stop offset="100%" stop-color="#ff8c00"/></linearGradient><radialGradient id="sun1" cx="50%" cy="100%"><stop offset="0%" stop-color="#ffee88"/><stop offset="40%" stop-color="#ffcd3c"/><stop offset="100%" stop-color="#f7931e"/></radialGradient></defs><rect width="500" height="340" fill="url(#sky1)"/><circle cx="250" cy="270" r="80" fill="url(#sun1)" opacity="0.95"/><ellipse cx="250" cy="280" rx="240" ry="18" fill="#ff8c00" opacity="0.12"/><line x1="250" y1="190" x2="250" y2="140" stroke="#ffcd3c" stroke-width="2" opacity="0.45"/><line x1="250" y1="190" x2="305" y2="158" stroke="#ffcd3c" stroke-width="1.5" opacity="0.3"/><line x1="250" y1="190" x2="195" y2="158" stroke="#ffcd3c" stroke-width="1.5" opacity="0.3"/><rect y="285" width="500" height="55" fill="#06030a"/><rect x="0" y="280" width="70" height="50" rx="2" fill="#06030a" opacity="0.97"/><rect x="80" y="265" width="35" height="65" rx="1" fill="#07040c" opacity="0.97"/><rect x="180" y="272" width="55" height="58" rx="2" fill="#06030a" opacity="0.97"/><rect x="330" y="268" width="45" height="62" rx="2" fill="#07040c" opacity="0.97"/><rect x="420" y="275" width="80" height="55" rx="2" fill="#06030a" opacity="0.97"/></svg>`},
+  {title:'sunset_02.jpg',caption:'City silhouette at dusk — violet hour',svg:`<svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%"><defs><linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d1a3a"/><stop offset="38%" stop-color="#4a2060"/><stop offset="68%" stop-color="#c04040"/><stop offset="100%" stop-color="#ff7020"/></linearGradient></defs><rect width="500" height="340" fill="url(#sky2)"/><circle cx="370" cy="210" r="65" fill="#ffb347" opacity="0.92"/><circle cx="370" cy="210" r="78" fill="#ff8c00" opacity="0.12"/><rect y="255" width="500" height="85" fill="#050812"/><rect x="0" y="235" width="45" height="100" rx="2" fill="#060b18"/><rect x="18" y="222" width="12" height="113" rx="1" fill="#06091a"/><rect x="55" y="205" width="30" height="130" rx="2" fill="#070d1e"/><rect x="98" y="215" width="18" height="120" rx="1" fill="#060b18"/><rect x="128" y="185" width="42" height="150" rx="2" fill="#080e20"/><rect x="142" y="176" width="14" height="159" rx="1" fill="#070c1c"/><rect x="198" y="222" width="28" height="113" rx="2" fill="#060a16"/><rect x="248" y="200" width="38" height="135" rx="2" fill="#080e20"/><rect x="262" y="191" width="11" height="144" rx="1" fill="#070c1c"/><rect x="308" y="235" width="22" height="100" rx="2" fill="#060a16"/><rect x="395" y="230" width="32" height="105" rx="2" fill="#070d1e"/><rect x="440" y="240" width="60" height="95" rx="2" fill="#060a16"/><rect x="11" y="249" width="2" height="2" fill="#ffcd3c" opacity="0.6"/><rect x="61" y="236" width="2" height="2" fill="#ffcd3c" opacity="0.45"/><rect x="135" y="240" width="2" height="2" fill="#ffcd3c" opacity="0.55"/><rect x="255" y="234" width="2" height="2" fill="#ffcd3c" opacity="0.45"/></svg>`}
+];
+let currentPhotoIdx=0;
+function openPhoto(idx){currentPhotoIdx=idx;renderPhoto();openApp('photo-viewer');}
+function renderPhoto(){
+  const p=PHOTOS[currentPhotoIdx];
+  document.getElementById('photo-canvas').innerHTML=p.svg;
+  document.getElementById('photo-caption').textContent=p.caption;
+  document.getElementById('photo-viewer-title').textContent=p.title;
+}
+function navigatePhoto(dir){currentPhotoIdx=(currentPhotoIdx+dir+PHOTOS.length)%PHOTOS.length;renderPhoto();}
+
+const SD=[
+  {g:'// languages',items:[['Python',10],['JavaScript',9],['TypeScript',8],['Node.js',8],['Java',7]]},
+  {g:'// frameworks',items:[['FastAPI',9],['React.js',8],['LangChain',9],['PyTorch',8],['Flask',8]]},
+  {g:'// cloud & devops',items:[['AWS',9],['Docker',8],['RabbitMQ',8],['CI/CD',8],['Kubernetes',7]]},
+  {g:'// ai & data',items:[['RAG Systems',9],['Medical LLMs',9],['Diffusion Models',8],['PostgreSQL',8],['Apache Kafka',8]]},
+];
+const LVL=['','','','Novice','','Familiar','','Proficient','','Advanced','Expert'];
+function buildSkills(){
+  document.getElementById('skills-body').innerHTML=SD.map(g=>`
+    <div><div class="sk-group-title">${g.g}</div>
+    ${g.items.map(([n,l])=>`<div class="sk-item">
+      <span class="sk-name">${n}</span>
+      <div class="sk-dots">${Array.from({length:10},(_,i)=>`<div class="sk-dot ${i<l?'on':''}" style="transition-delay:${i*25}ms"></div>`).join('')}</div>
+      <span class="sk-tag">${LVL[l]}</span>
+    </div>`).join('')}
+    </div>`).join('');
+}
+
+// GITHUB
+const LC={JavaScript:'#f1e05a',TypeScript:'#2b7489',Python:'#3572A5',Java:'#b07219','C++':'#f34b7d',HTML:'#e34c26',CSS:'#563d7c',Go:'#00ADD8',Rust:'#dea584',Shell:'#89e051','Jupyter Notebook':'#DA5B0B'};
+function fmtDate(d){const diff=Math.ceil((Date.now()-new Date(d))/86400000);if(diff<7)return diff+'d ago';if(diff<30)return Math.floor(diff/7)+'w ago';if(diff<365)return Math.floor(diff/30)+'mo ago';return Math.floor(diff/365)+'y ago';}
+async function loadProjects(){
+  try{
+    const repos=(await(await fetch('https://api.github.com/users/umesh0518/repos?per_page=100&sort=updated')).json()).filter(r=>!r.fork).slice(0,16);
+    document.getElementById('proj-list').innerHTML=repos.map(r=>{
+      const lang=r.language||'—',col=LC[lang]||'var(--muted2)';
+      return `<div class="proj-row" onclick="window.open('${r.html_url}','_blank')">
+        <div class="proj-name-cell"><div class="proj-name">${r.name.replace(/[-_]/g,' ')}</div><a href="${r.html_url}" target="_blank" class="proj-link" onclick="event.stopPropagation()">github →</a></div>
+        <div class="proj-date">${fmtDate(r.updated_at)}</div>
+        <div class="proj-lang"><span style="background:${col}22;color:${col}">${lang}</span></div>
+      </div>`;
+    }).join('');
+    document.getElementById('proj-meta').textContent=`synced ${new Date().toLocaleTimeString()} · ${repos.length} repos`;
+  }catch(e){document.getElementById('proj-list').innerHTML='<div class="proj-loading">Could not reach GitHub API.</div>';}
+}
+
+// TERMINAL
+const CMDS={
+  help:()=>`<span style="color:var(--accent)">Available commands:</span>
+
+  <span style="color:var(--accent)">about</span>          who is umesh
+  <span style="color:var(--accent)">skills</span>         tech stack
+  <span style="color:var(--accent)">experience</span>     work history
+  <span style="color:var(--accent)">research</span>       4 published papers
+  <span style="color:var(--accent)">education</span>      academic background
+  <span style="color:var(--accent)">contact</span>        get in touch
+  <span style="color:var(--accent)">open &lt;app&gt;</span>     launch window
+                 (about · exp · research · skills ·
+                  projects · edu · contact · terminal · settings)
+  <span style="color:var(--accent)">github</span>         open GitHub profile
+  <span style="color:var(--accent)">scholar</span>        open Google Scholar
+  <span style="color:var(--accent)">clear</span>          clear terminal`,
+  about:()=>`<b style="color:var(--text)">Umesh Yadav</b> — AI Engineer · Full-Stack · ML Researcher
+GPA 4.0 (both BS &amp; MS) · 4 published papers
+AWS Certified Developer Associate
+Current: Grad Research Assistant @ University of Toledo
+Open to: Full-time AI/ML engineering roles`,
+  skills:()=>`Languages:   Python · JavaScript · TypeScript · Java
+Frameworks:  FastAPI · React.js · PyTorch · LangChain
+AI/ML:       RAG · Medical LLMs · Diffusion Models · BERT
+Cloud:       AWS · Docker · RabbitMQ · Kubernetes
+Data:        PostgreSQL · Kafka · Apache Avro`,
+  experience:()=>`<b style="color:var(--text)">Graduate Research Assistant</b> @ U of Toledo (Aug 2024 – Present)
+  → Sole engineer on AI medical sim platform (6 enterprise clients)
+  → Multi-modal ML: BERT + Medical LLMs + PyTorch physiological classifiers
+  → RAG system for personalized training recommendations
+  → Full-stack: React · Node.js · RabbitMQ · Docker · AWS
+
+<b style="color:var(--text)">Software Engineer Intern</b> @ My Evaluation Pal (May–Aug 2024)
+  → FastAPI + Kafka real-time ML pipeline · 12% latency reduction
+  → 30% data transfer efficiency via WebSocket optimization
+  → ETL: 10,000+ records migrated to PostgreSQL, zero data loss`,
+  research:()=>`4 published papers:
+01 <a href="https://arxiv.org/abs/2512.08290" target="_blank">SoK: Security in the MCP Ecosystem</a>
+02 <a href="https://arxiv.org/abs/2501.02147" target="_blank">Adversarial ML on ResNet-50</a> (SVCC 2025)
+03 <a href="https://doi.org/10.48550/arXiv.2601.15457" target="_blank">RAG Architecture Evaluation</a>
+04 <a href="https://arxiv.org/pdf/2603.07379" target="_blank">Agentic RAG Survey (SoK)</a>`,
+  education:()=>`MS CS · University of Toledo (2024–2026) · GPA 4.0 · AI Specialization
+BS CS · Youngstown State (2022–2024) · GPA 4.0
+Award: Fully-funded Graduate Research Assistantship`,
+  contact:()=>`LinkedIn: <a href="https://www.linkedin.com/in/umesh-yadav-29120a191" target="_blank">umesh-yadav-29120a191</a>
+GitHub:   <a href="https://github.com/umesh0518" target="_blank">github.com/umesh0518</a>
+Scholar:  <a href="https://scholar.google.com/citations?user=0sXDNMgAAAAJ" target="_blank">Google Scholar (4 papers)</a>
+Site:     <a href="https://umesh0518.github.io" target="_blank">umesh0518.github.io</a>`,
+  github:()=>{window.open('https://github.com/umesh0518','_blank');return'Opening GitHub...';},
+  scholar:()=>{window.open('https://scholar.google.com/citations?user=0sXDNMgAAAAJ&hl=en','_blank');return'Opening Google Scholar...';},
+  clear:()=>{document.getElementById('term-history').innerHTML='';return null;},
+};
+function termKey(e){
+  if(e.key!=='Enter')return;
+  const inp=document.getElementById('term-input');const raw=inp.value.trim();inp.value='';if(!raw)return;
+  const hist=document.getElementById('term-history');
+  const cl=document.createElement('div');cl.className='term-line';
+  cl.innerHTML=`<span class="term-prompt">guest@portfolio:~$&nbsp;</span><span class="term-cmd">${raw}</span>`;
+  hist.appendChild(cl);
+  const parts=raw.split(' ');const cmd=parts[0].toLowerCase();let out=null;
+  if(cmd==='open'){
+    const app=parts[1];
+    if(app&&wins[app]){openApp(app);out=`Launching <span style="color:var(--accent)">${app}</span>...`;}
+    else out=`Unknown app. Try: ${Object.keys(wins).join(' · ')}`;
+  }else if(CMDS[cmd])out=CMDS[cmd]();
+  else out=`<span class="term-err">Command not found: ${raw}</span>. Type <span style="color:var(--accent)">help</span>.`;
+  if(out!==null){const ol=document.createElement('div');ol.className='term-line term-out';ol.innerHTML=out;hist.appendChild(ol);const sp=document.createElement('div');sp.style.height='4px';hist.appendChild(sp);}
+  const b=document.getElementById('term-body');b.scrollTop=b.scrollHeight;
+}
+
+// INIT
+openApp('about');
+</script>
+</body>
 </html>
