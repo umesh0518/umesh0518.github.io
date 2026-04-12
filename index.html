@@ -18,8 +18,8 @@
   --win-header: #0B0E14;
   --win-border: rgba(135,146,163,0.14);
   --text: #F5F5F7;
-  --muted: #3a3f4a;
-  --muted2: #6a7080;
+  --muted: #7a8194;
+  --muted2: #b0b8cc;
   --surface: #151A22;
   --mono: 'JetBrains Mono', monospace;
   --sans: 'Outfit', sans-serif;
@@ -29,35 +29,165 @@
 body.light-mode {
   --bg: #FAFAFA; --bar: #EFEFF0; --dock-bg: rgba(239,239,240,0.96);
   --win-bg: #FFFFFF; --win-header: #F2F2F3; --win-border: rgba(0,0,0,0.09);
-  --text: #1C1C1E; --muted: #b0b0b0; --muted2: #6a6a6a; --surface: #EBEBEC;
+  --text: #1a1a1a; --muted: #999; --muted2: #555; --surface: #EBEBEC;
   --shadow: 0 12px 40px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
 }
 /* Light mode text fixes */
-body.light-mode .tb-menu { color: #1C1C1E; }
-body.light-mode .tb-right { color: #6a6a6a; }
-body.light-mode .win-title { color: #888; }
+body.light-mode .tb-menu { color: #1a1a1a; }
+body.light-mode .tb-right { color: #555; }
+body.light-mode .win-title { color: #666; }
 body.light-mode .term-wrap { background: #1a1a1a; }
-body.light-mode .about-name { color: #1C1C1E; }
-body.light-mode .exp-role { color: #1C1C1E; }
-body.light-mode .res-title { color: #1C1C1E; }
-body.light-mode .proj-name { color: #1C1C1E; }
-body.light-mode .contact-val { color: #1C1C1E; }
-body.light-mode .sk-name { color: #1C1C1E; }
-body.light-mode .edu-deg { color: #1C1C1E; }
-body.light-mode .contact-title { color: #1C1C1E; }
-body.light-mode .settings-h1 { color: #1C1C1E; }
-body.light-mode .s-label { color: #1C1C1E; }
-body.light-mode .folder-item-name { color: #1C1C1E; }
-body.light-mode .hobbies-body { color: #1C1C1E; }
-body.light-mode .photo-caption { color: #6a6a6a; }
-body.light-mode .di-label { text-shadow: none; color: #1C1C1E; }
+body.light-mode .about-name { color: #1a1a1a; }
+body.light-mode .exp-role { color: #1a1a1a; }
+body.light-mode .res-title { color: #1a1a1a; }
+body.light-mode .proj-name { color: #1a1a1a; }
+body.light-mode .contact-val { color: #1a1a1a; }
+body.light-mode .sk-name { color: #1a1a1a; }
+body.light-mode .edu-deg { color: #1a1a1a; }
+body.light-mode .contact-title { color: #1a1a1a; }
+body.light-mode .settings-h1 { color: #1a1a1a; }
+body.light-mode .s-label { color: #1a1a1a; }
+body.light-mode .folder-item-name { color: #1a1a1a; }
+body.light-mode .hobbies-body { color: #1a1a1a; }
+body.light-mode .photo-caption { color: #555; }
+body.light-mode .di-label { text-shadow: none; color: #1a1a1a; }
 body.light-mode .sk-dot { background: rgba(var(--accent-rgb),0.15); border-color: rgba(var(--accent-rgb),0.2); }
-body.light-mode .alink-ghost { color: #5a5a5a; }
-body.light-mode .exp-desc-short { color: #5a5a5a; }
-body.light-mode .am-label { color: #888; }
-body.light-mode .exp-period { color: #999; }
-body.light-mode .exp-section-label { color: #aaa; }
-body.light-mode .about-bio { color: #555; }
+body.light-mode .alink-ghost { color: #444; }
+body.light-mode .exp-desc-short { color: #444; }
+body.light-mode .am-label { color: #666; }
+body.light-mode .exp-period { color: #777; }
+body.light-mode .exp-section-label { color: #888; }
+body.light-mode .about-bio { color: #444; }
+body.light-mode .contact-sub { color: #555; }
+body.light-mode .hobby-desc { color: #555; }
+body.light-mode .hobbies-sub { color: #666; }
+body.light-mode .edu-courses { color: #555; }
+body.light-mode .edu-gpa { color: #555; }
+body.light-mode .res-venue { color: #555; }
+body.light-mode .exp-bullets li { color: #444; }
+body.light-mode .folder-toolbar { color: #666; }
+
+/* ── MOBILE VIEW ── */
+#mobile-view { display: none; }
+@media (max-width: 768px) {
+  #wallpaper, #topbar, #desktop, #dock, #display-panel { display: none !important; }
+  .win { display: none !important; }
+  #mobile-view { display: block; }
+  body { overflow: auto !important; height: auto !important; }
+  html { height: auto !important; overflow: auto !important; }
+  #cat-clippy { display: none !important; }
+  #clippy-dialog-overlay { display: none !important; }
+  #notif-container { display: none !important; }
+}
+.mv-wrap { background: var(--bg); min-height: 100vh; color: var(--text); font-family: var(--sans); }
+.mv-bar { position: sticky; top: 0; z-index: 100; background: var(--bar); border-bottom: 1px solid var(--win-border); padding: 0 16px; height: 44px; display: flex; align-items: center; justify-content: space-between; backdrop-filter: blur(12px); }
+.mv-logo { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--accent); }
+.mv-avail { display: flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 10px; color: var(--muted2); }
+.mv-hero { padding: 40px 20px 28px; border-bottom: 1px solid var(--win-border); }
+.mv-kicker { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 10px; }
+.mv-name { font-size: 2.8rem; font-weight: 800; line-height: .92; letter-spacing: -.04em; margin-bottom: 14px; }
+.mv-name .mv-outline { -webkit-text-stroke: 1.5px var(--accent); color: transparent; display: block; }
+.mv-bio { font-size: 13px; color: var(--muted2); line-height: 1.75; margin-bottom: 16px; }
+.mv-bio strong { color: var(--text); font-weight: 500; }
+.mv-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 18px; }
+.mv-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.mv-metrics { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid var(--win-border); margin-top: 24px; }
+.mv-metric { padding: 14px 10px; text-align: center; border-right: 1px solid var(--win-border); }
+.mv-metric:last-child { border-right: none; }
+.mv-mv { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+.mv-ml { font-family: var(--mono); font-size: 9px; color: var(--muted2); margin-top: 3px; line-height: 1.4; }
+.mv-section { padding: 0 20px 24px; border-bottom: 1px solid var(--win-border); margin-top: 24px; }
+.mv-sec-title { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid rgba(var(--accent-rgb),.12); }
+.mv-exp-item { margin-bottom: 18px; }
+.mv-exp-role { font-size: 13px; font-weight: 600; color: var(--text); }
+.mv-exp-org { font-family: var(--mono); font-size: 11px; color: var(--accent); margin: 2px 0 6px; }
+.mv-exp-desc { font-size: 12px; color: var(--muted2); line-height: 1.6; }
+.mv-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.mv-tag { font-family: var(--mono); font-size: 10px; padding: 2px 6px; background: rgba(var(--accent-rgb),.06); color: var(--muted2); border-radius: 2px; border: 1px solid rgba(var(--accent-rgb),.1); }
+.mv-res-item { margin-bottom: 14px; }
+.mv-res-num { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+.mv-res-title { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.4; margin: 2px 0; }
+.mv-res-link { font-family: var(--mono); font-size: 11px; color: var(--accent); text-decoration: none; }
+.mv-sk-item { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.mv-sk-name { font-family: var(--mono); font-size: 11px; color: var(--text); width: 110px; flex-shrink: 0; }
+.mv-sk-bar { flex: 1; height: 4px; background: rgba(var(--accent-rgb),.1); border-radius: 2px; overflow: hidden; }
+.mv-sk-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width .6s ease; }
+.mv-contact-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(var(--accent-rgb),.08); text-decoration: none; }
+.mv-contact-icon { font-size: 15px; width: 24px; text-align: center; }
+.mv-contact-label { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+.mv-contact-val { font-size: 12px; color: var(--text); }
+.mv-footer { padding: 28px 20px; text-align: center; font-family: var(--mono); font-size: 10px; color: var(--muted); }
+.mv-hint { background: rgba(var(--accent-rgb),.05); border: 1px solid rgba(var(--accent-rgb),.15); border-radius: 8px; padding: 12px 14px; margin: 0 20px 20px; font-family: var(--mono); font-size: 10px; color: var(--muted2); line-height: 1.6; }
+.mv-hint strong { color: var(--accent); }
+
+/* ── SHIBA CLIPPY (mouse-following, animated) ── */
+#cat-clippy { position: fixed; z-index: 9990; pointer-events: none; transition: none; }
+#cat-clippy svg { width: 72px; height: 72px; filter: drop-shadow(0 4px 12px rgba(0,0,0,.4)); }
+/* Blink */
+#cat-clippy .shiba-eye-l, #cat-clippy .shiba-eye-r { animation: shiba-blink 4s infinite; }
+#cat-clippy .shiba-eye-r { animation-delay: .12s; }
+@keyframes shiba-blink {
+  0%,42%,47%,100% { ry: 2.2px; }
+  44.5% { ry: 0.2px; }
+}
+/* Tail wag */
+#cat-clippy .shiba-tail { animation: shiba-tail-wag 0.5s ease-in-out infinite alternate; transform-origin: 38px 18px; }
+@keyframes shiba-tail-wag {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+/* Walking: front and back leg pairs alternate */
+#cat-clippy.walking .shiba-leg-f { animation: shiba-step 0.3s ease-in-out infinite alternate; transform-origin: 20px 36px; }
+#cat-clippy.walking .shiba-leg-b { animation: shiba-step 0.3s ease-in-out infinite alternate-reverse; transform-origin: 32px 36px; }
+@keyframes shiba-step {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+/* Body bob */
+#cat-clippy.walking .shiba-body-g { animation: shiba-bob 0.3s ease-in-out infinite alternate; }
+#cat-clippy .shiba-body-g { animation: shiba-idle 3s ease-in-out infinite; }
+@keyframes shiba-bob {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-1.5px); }
+}
+@keyframes shiba-idle {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+}
+/* Ear twitch */
+#cat-clippy .shiba-ear-l { animation: ear-twitch-l 5s ease-in-out infinite; transform-origin: 18px 6px; }
+#cat-clippy .shiba-ear-r { animation: ear-twitch-r 5s ease-in-out infinite; transform-origin: 30px 6px; }
+@keyframes ear-twitch-l {
+  0%,90%,96%,100% { transform: rotate(0); }
+  93% { transform: rotate(-6deg); }
+}
+@keyframes ear-twitch-r {
+  0%,85%,91%,100% { transform: rotate(0); }
+  88% { transform: rotate(6deg); }
+}
+
+/* ── MOBILE THEME TOGGLE ── */
+.mv-theme-btn { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--win-border); background: var(--surface); display: flex; align-items: center; justify-content: center; font-size: 14px; cursor: pointer; transition: background .2s; }
+.mv-theme-btn:hover { background: rgba(var(--accent-rgb),.15); }
+.mv-bar-right { display: flex; align-items: center; gap: 8px; }
+/* ── SHIBA SPEECH BUBBLE (above pet) ── */
+#clippy-dialog-overlay { position: fixed; z-index: 9995; pointer-events: none; opacity: 0; transition: opacity .4s; }
+#clippy-dialog-overlay.visible { opacity: 1; pointer-events: all; }
+#clippy-dialog { background: var(--win-bg); border: 1px solid var(--win-border); border-radius: 12px; padding: 14px 18px; max-width: 280px; text-align: left; box-shadow: 0 8px 28px rgba(0,0,0,.45); backdrop-filter: blur(12px); position: relative; }
+#clippy-dialog::after { content: ''; position: absolute; bottom: -8px; left: 24px; width: 16px; height: 16px; background: var(--win-bg); border-right: 1px solid var(--win-border); border-bottom: 1px solid var(--win-border); transform: rotate(45deg); }
+#clippy-dialog .cd-title { font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+#clippy-dialog .cd-msg { font-family: var(--mono); font-size: 10px; color: var(--muted2); line-height: 1.6; }
+
+/* ── NOTIFICATION SYSTEM (macOS style, top-right) ── */
+#notif-container { position: fixed; top: 36px; right: 12px; z-index: 9500; display: flex; flex-direction: column; gap: 8px; pointer-events: none; max-width: 300px; }
+.notif-toast { background: var(--bar); border: 1px solid var(--win-border); border-radius: 12px; padding: 10px 14px; font-family: var(--mono); font-size: 10px; color: var(--text); line-height: 1.6; box-shadow: 0 8px 28px rgba(0,0,0,.45); backdrop-filter: blur(16px); transform: translateX(120%); opacity: 0; transition: transform .45s cubic-bezier(.175,.885,.32,1.275), opacity .35s; pointer-events: all; }
+.notif-toast.show { transform: translateX(0); opacity: 1; }
+.notif-toast .notif-header { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.notif-toast .notif-label { font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.notif-toast .notif-body { color: var(--text); opacity: .85; }
+body.light-mode .notif-toast { background: rgba(255,255,255,.92); box-shadow: 0 8px 28px rgba(0,0,0,.12); }
+body.light-mode .notif-toast .notif-body { color: #444; }
+body.light-mode #clippy-dialog .cd-msg { color: #555; }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html,body{width:100%;height:100%;overflow:hidden;}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);cursor:default;user-select:none;transition:background .3s,color .3s;}
@@ -145,7 +275,7 @@ body.light-mode .photo-canvas{background:#111;}
 .photo-nav-btn:hover{background:rgba(var(--accent-rgb),0.22);}
 
 /* EXPERIENCE simplified */
-.exp-desc-short{font-size:12px;color:var(--muted2);line-height:1.6;margin-bottom:10px;}
+.exp-desc-short{font-size:12px;color:var(--muted2);line-height:1.7;margin-bottom:10px;}
 
 .win-title{flex:1;text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted2);pointer-events:none;}
 .win-pin{width:8px;height:8px;border-radius:50%;background:rgba(var(--accent-rgb),0.3);flex-shrink:0;}
@@ -163,9 +293,9 @@ body.light-mode .photo-canvas{background:#111;}
 .about-name{font-size:2.6rem;font-weight:800;line-height:.95;letter-spacing:-.04em;margin-bottom:14px;color:var(--text);}
 .about-name .outline{-webkit-text-stroke:1.5px var(--accent);color:transparent;display:block;}
 .about-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;}
-.chip{font-family:var(--mono);font-size:10px;padding:3px 8px;border:1px solid rgba(var(--accent-rgb),0.25);color:var(--accent);background:rgba(var(--accent-rgb),0.06);border-radius:3px;}
-.about-bio{font-size:13px;font-weight:300;color:var(--muted2);line-height:1.8;margin-bottom:18px;}
-.about-bio strong{color:var(--text);font-weight:500;}
+.chip{font-family:var(--mono);font-size:10px;padding:3px 8px;border:1px solid rgba(var(--accent-rgb),0.32);color:var(--text);background:rgba(var(--accent-rgb),0.1);border-radius:3px;}
+.about-bio{font-size:13px;font-weight:400;color:var(--muted2);line-height:1.8;margin-bottom:18px;}
+.about-bio strong{color:var(--text);font-weight:600;}
 .about-links{display:flex;gap:8px;flex-wrap:wrap;}
 .alink{font-family:var(--mono);font-size:11px;padding:6px 14px;text-decoration:none;border-radius:4px;transition:all .15s;}
 .alink-solid{background:var(--accent);color:#fff;}.alink-solid:hover{background:var(--accent2);}
@@ -187,12 +317,12 @@ body.light-mode .photo-canvas{background:#111;}
 .exp-period{font-family:var(--mono);font-size:10px;color:var(--muted);white-space:nowrap;margin-left:8px;}
 .exp-org{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:10px;}
 .exp-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;}
-.exp-bullets li{font-size:12px;color:var(--muted2);line-height:1.55;padding-left:14px;position:relative;}
+.exp-bullets li{font-size:12px;color:var(--muted2);line-height:1.65;padding-left:14px;position:relative;}
 .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:10px;top:1px;}
 .exp-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;}
-.etag{font-family:var(--mono);font-size:10px;padding:2px 6px;background:rgba(var(--accent-rgb),0.06);color:var(--muted2);border-radius:2px;border:1px solid rgba(var(--accent-rgb),0.1);}
+.etag{font-family:var(--mono);font-size:10px;padding:2px 6px;background:rgba(var(--accent-rgb),0.1);color:var(--text);border-radius:2px;border:1px solid rgba(var(--accent-rgb),0.15);opacity:.85;}
 .exp-chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;}
-.exp-chip{font-family:var(--mono);font-size:10px;padding:3px 8px;background:rgba(var(--accent-rgb),0.08);color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.18);border-radius:3px;}
+.exp-chip{font-family:var(--mono);font-size:10px;padding:3px 8px;background:rgba(var(--accent-rgb),0.12);color:var(--text);border:1px solid rgba(var(--accent-rgb),0.22);border-radius:3px;}
 .exp-current{position:absolute;top:18px;right:16px;width:7px;height:7px;border-radius:50%;background:#4ade80;}
 .exp-current::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid #4ade80;animation:pulse-ring 2s infinite;opacity:.5;}
 
@@ -223,7 +353,7 @@ body.light-mode .photo-canvas{background:#111;}
 #win-contact{width:380px;height:340px;top:110px;left:400px;}
 .contact-body{padding:20px;}
 .contact-title{font-size:1.4rem;font-weight:700;margin-bottom:6px;color:var(--text);}
-.contact-sub{font-family:var(--mono);font-size:11px;color:var(--muted2);margin-bottom:18px;line-height:1.6;}
+.contact-sub{font-family:var(--mono);font-size:11px;color:var(--muted2);margin-bottom:18px;line-height:1.7;}
 .contact-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(var(--accent-rgb),0.08);text-decoration:none;transition:padding-left .15s;}
 .contact-item:hover{padding-left:6px;}
 .contact-icon{font-size:15px;width:26px;text-align:center;flex-shrink:0;}
@@ -324,7 +454,7 @@ body.light-mode .term-wrap{background:#1a1a1a;}
 .edu-deg{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;}
 .edu-school{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:4px;}
 .edu-gpa{font-family:var(--mono);font-size:10px;color:var(--muted2);margin-bottom:8px;}
-.edu-courses{font-size:11px;color:var(--muted2);line-height:1.6;}
+.edu-courses{font-size:11px;color:var(--muted2);line-height:1.7;}
 </style>
 </head>
 <body>
@@ -353,7 +483,6 @@ body.light-mode .term-wrap{background:#1a1a1a;}
   <div class="desk-icon" ondblclick="openApp('about')"><div class="di-img file-icon">TXT</div><div class="di-label">about.txt</div></div>
   <div class="desk-icon" ondblclick="openApp('edu')"><div class="di-img file-icon">EDU</div><div class="di-label">education.md</div></div>
   <div class="desk-icon" ondblclick="openApp('personal')"><div class="di-img" style="background:rgba(var(--accent-rgb),0.18);border-color:rgba(var(--accent-rgb),0.25)">🗂</div><div class="di-label">Personal</div></div>
-  <div class="desk-icon" ondblclick="openApp('photos')"><div class="di-img" style="background:rgba(var(--accent-rgb),0.18);border-color:rgba(var(--accent-rgb),0.25)">🌅</div><div class="di-label">Photos</div></div>
 </div>
 
 <!-- DISPLAY PANEL -->
@@ -618,11 +747,6 @@ body.light-mode .term-wrap{background:#1a1a1a;}
       <div class="edu-gpa">GPA 4.0 · Aug 2022 – May 2024</div>
       <div class="edu-courses">Data Structures · OOP · Database Design · OS · Software Engineering · Computer Organization</div>
     </div>
-    <div class="edu-item" style="background:rgba(var(--accent-rgb),0.03)">
-      <div class="edu-year">ACHIEVEMENT</div>
-      <div class="edu-deg">Perfect 4.0 GPA — Both Degrees</div>
-      <div class="edu-school" style="color:#4ade80">80+ Credits · 6 years · 4 published papers</div>
-      <div class="edu-courses">Maintained a flawless academic record across both programs while conducting active research, publishing 4 papers, and building a production AI platform for federal and enterprise clients.</div>
     </div>
   </div></div>
   <div class="resize-handle" onmousedown="startResize(event,'win-edu')"></div>
@@ -641,9 +765,9 @@ body.light-mode .term-wrap{background:#1a1a1a;}
         <div class="folder-item-icon md-icon">MD</div>
         <div class="folder-item-name">hobbies.md</div>
       </div>
-      <div class="folder-item" ondblclick="openApp('hobbies')">
-        <div class="folder-item-icon md-icon">MD</div>
-        <div class="folder-item-name">interests.md</div>
+      <div class="folder-item" ondblclick="openApp('photos')">
+        <div class="folder-item-icon" style="background:rgba(var(--accent-rgb),0.18);border-color:rgba(var(--accent-rgb),0.25)">🌅</div>
+        <div class="folder-item-name">Photos</div>
       </div>
     </div>
   </div>
@@ -752,6 +876,155 @@ body.light-mode .term-wrap{background:#1a1a1a;}
   <div class="dock-btn" id="dock-terminal" onclick="openApp('terminal')">⌨<div class="tooltip">Terminal</div></div>
   <div class="dock-btn" id="dock-settings" onclick="openApp('settings')" style="font-size:15px">⚙︎<div class="tooltip">Settings</div></div>
 </div>
+
+<!-- MOBILE VIEW -->
+<div id="mobile-view">
+  <div class="mv-wrap">
+    <div class="mv-bar">
+      <div class="mv-logo">umesh.yadav</div>
+      <div class="mv-bar-right">
+        <div class="mv-avail"><div class="tb-dot"></div><span>open to roles</span></div>
+        <div class="mv-theme-btn" id="mv-theme-toggle" onclick="toggleMobileTheme()" title="Toggle dark/light mode">☾</div>
+      </div>
+    </div>
+    <div class="mv-hint">🖥️ <strong>Best viewed on laptop/desktop</strong> — this portfolio is a full OS simulation with draggable windows, a terminal, and Easter eggs. Come back on a bigger screen for the full experience!</div>
+    <div class="mv-hero">
+      <div class="mv-kicker">AI Engineer · Full-Stack · ML Researcher</div>
+      <div class="mv-name">UMESH<span class="mv-outline">YADAV</span></div>
+      <p class="mv-bio">Building <strong>production AI systems</strong> end-to-end — multimodal ML pipelines to full-stack platforms. MS CS @ University of Toledo. <strong>GPA 4.0. 4 published papers.</strong> AWS Certified.</p>
+      <div class="mv-chips">
+        <span class="chip">AWS Certified</span><span class="chip">ML Researcher</span>
+        <span class="chip">4× Published</span><span class="chip">GPA 4.0</span>
+        <span class="chip">RAG Systems</span><span class="chip">Medical AI</span>
+      </div>
+      <div class="mv-links">
+        <a href="https://github.com/umesh0518" target="_blank" class="alink alink-solid">$ github</a>
+        <a href="https://www.linkedin.com/in/umesh-yadav-29120a191" target="_blank" class="alink alink-ghost">linkedin</a>
+        <a href="https://scholar.google.com/citations?user=0sXDNMgAAAAJ" target="_blank" class="alink alink-ghost">scholar</a>
+      </div>
+      <div class="mv-metrics">
+        <div class="mv-metric"><div class="mv-mv">4.0</div><div class="mv-ml">GPA<br>both degrees</div></div>
+        <div class="mv-metric"><div class="mv-mv">4</div><div class="mv-ml">published<br>papers</div></div>
+        <div class="mv-metric"><div class="mv-mv">6</div><div class="mv-ml">enterprise<br>clients</div></div>
+      </div>
+    </div>
+
+    <div class="mv-section">
+      <div class="mv-sec-title">Experience</div>
+      <div class="mv-exp-item">
+        <div class="mv-exp-role">Graduate Research Assistant · Software Engineer</div>
+        <div class="mv-exp-org">University of Toledo · Aug 2024 – Present</div>
+        <div class="mv-exp-desc">Sole engineer on a production AI medical simulation platform deployed to 6 enterprise & federal clients. Multi-modal ML, RAG, medical LLMs, full-stack React/Node/AWS architecture.</div>
+        <div class="mv-tags"><span class="mv-tag">PyTorch</span><span class="mv-tag">Medical LLMs</span><span class="mv-tag">RAG</span><span class="mv-tag">React</span><span class="mv-tag">AWS</span></div>
+      </div>
+      <div class="mv-exp-item">
+        <div class="mv-exp-role">Software Engineer Intern</div>
+        <div class="mv-exp-org">My Evaluation Pal · May – Aug 2024</div>
+        <div class="mv-exp-desc">Built a real-time ML pipeline (FastAPI + Kafka), 12% latency reduction, 30% data transfer efficiency gain, ETL of 10k+ records to PostgreSQL.</div>
+        <div class="mv-tags"><span class="mv-tag">FastAPI</span><span class="mv-tag">Kafka</span><span class="mv-tag">PostgreSQL</span><span class="mv-tag">WebSocket</span></div>
+      </div>
+    </div>
+
+    <div class="mv-section">
+      <div class="mv-sec-title">Research · 4 Papers</div>
+      <div class="mv-res-item"><div class="mv-res-num">01</div><div class="mv-res-title">SoK: Security in the Model Context Protocol Ecosystem</div><a href="https://arxiv.org/abs/2512.08290" target="_blank" class="mv-res-link">arXiv →</a></div>
+      <div class="mv-res-item"><div class="mv-res-num">02</div><div class="mv-res-title">Adversarial ML: Payload Injection & FGSM on ResNet-50 (SVCC 2025)</div><a href="https://arxiv.org/abs/2501.02147" target="_blank" class="mv-res-link">arXiv →</a></div>
+      <div class="mv-res-item"><div class="mv-res-num">03</div><div class="mv-res-title">Chunking, Retrieval, Re-ranking: RAG Architecture Evaluation</div><a href="https://doi.org/10.48550/arXiv.2601.15457" target="_blank" class="mv-res-link">arXiv →</a></div>
+      <div class="mv-res-item"><div class="mv-res-num">04</div><div class="mv-res-title">SoK: Agentic RAG — Taxonomy, Architectures & Research Directions</div><a href="https://arxiv.org/pdf/2603.07379" target="_blank" class="mv-res-link">arXiv →</a></div>
+    </div>
+
+    <div class="mv-section">
+      <div class="mv-sec-title">Tech Stack</div>
+      <div class="mv-sk-item"><div class="mv-sk-name">Python</div><div class="mv-sk-bar"><div class="mv-sk-fill" style="width:100%"></div></div></div>
+      <div class="mv-sk-item"><div class="mv-sk-name">PyTorch / ML</div><div class="mv-sk-bar"><div class="mv-sk-fill" style="width:80%"></div></div></div>
+      <div class="mv-sk-item"><div class="mv-sk-name">RAG Systems</div><div class="mv-sk-bar"><div class="mv-sk-fill" style="width:90%"></div></div></div>
+      <div class="mv-sk-item"><div class="mv-sk-name">React / Node</div><div class="mv-sk-bar"><div class="mv-sk-fill" style="width:80%"></div></div></div>
+      <div class="mv-sk-item"><div class="mv-sk-name">AWS</div><div class="mv-sk-bar"><div class="mv-sk-fill" style="width:90%"></div></div></div>
+      <div class="mv-sk-item"><div class="mv-sk-name">FastAPI</div><div class="mv-sk-bar"><div class="mv-sk-fill" style="width:90%"></div></div></div>
+      <div class="mv-sk-item"><div class="mv-sk-name">Docker / K8s</div><div class="mv-sk-bar"><div class="mv-sk-fill" style="width:80%"></div></div></div>
+    </div>
+
+    <div class="mv-section">
+      <div class="mv-sec-title">Education</div>
+      <div class="mv-exp-item">
+        <div class="mv-exp-role">MS Computer Science & Engineering</div>
+        <div class="mv-exp-org">University of Toledo · 2024–2026 · GPA 4.0</div>
+        <div class="mv-exp-desc">AI Specialization · Fully-funded Research Assistantship · Thesis on multimodal AI assessment platforms</div>
+      </div>
+      <div class="mv-exp-item">
+        <div class="mv-exp-role">BS Computer Science</div>
+        <div class="mv-exp-org">Youngstown State University · 2022–2024 · GPA 4.0</div>
+      </div>
+    </div>
+
+    <div class="mv-section">
+      <div class="mv-sec-title">Contact</div>
+      <a href="https://www.linkedin.com/in/umesh-yadav-29120a191" target="_blank" class="mv-contact-item"><div class="mv-contact-icon">💼</div><div><div class="mv-contact-label">LinkedIn</div><div class="mv-contact-val">umesh-yadav-29120a191</div></div></a>
+      <a href="https://github.com/umesh0518" target="_blank" class="mv-contact-item"><div class="mv-contact-icon">⬡</div><div><div class="mv-contact-label">GitHub</div><div class="mv-contact-val">github.com/umesh0518</div></div></a>
+      <a href="https://scholar.google.com/citations?user=0sXDNMgAAAAJ" target="_blank" class="mv-contact-item"><div class="mv-contact-icon">📖</div><div><div class="mv-contact-label">Google Scholar</div><div class="mv-contact-val">4 published papers</div></div></a>
+      <div class="mv-contact-item"><div class="mv-contact-icon">📍</div><div><div class="mv-contact-label">Location</div><div class="mv-contact-val">Toledo, OH · Open to relocation</div></div></div>
+    </div>
+
+    <div class="mv-footer">umesh yadav · portfolio · open to full-time AI/ML roles</div>
+  </div>
+</div>
+
+<!-- SHIBA CLIPPY (animated, mouse-following) -->
+<div id="cat-clippy">
+  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <g class="shiba-body-g">
+      <!-- tail (curled up, Shiba style) -->
+      <path class="shiba-tail" d="M38,18 Q44,10 42,20 Q40,26 38,22" fill="#e8a030" stroke="#d4922a" stroke-width="0.5"/>
+      <!-- body -->
+      <ellipse cx="26" cy="28" rx="13" ry="9" fill="#e8a030"/>
+      <!-- belly -->
+      <ellipse cx="26" cy="30" rx="8" ry="5" fill="#fce8b8" opacity=".6"/>
+      <!-- back leg -->
+      <ellipse class="shiba-leg-b" cx="34" cy="37" rx="3.5" ry="6" fill="#d4922a"/>
+      <!-- front leg -->
+      <ellipse class="shiba-leg-f" cx="18" cy="37" rx="3.5" ry="6" fill="#d4922a"/>
+      <!-- paws -->
+      <ellipse cx="18" cy="42" rx="3.8" ry="2.2" fill="#e8a030"/>
+      <ellipse cx="34" cy="42" rx="3.8" ry="2.2" fill="#e8a030"/>
+      <!-- head -->
+      <circle cx="14" cy="16" r="11" fill="#e8a030"/>
+      <!-- face white patch -->
+      <ellipse cx="14" cy="19" rx="7" ry="6" fill="#fce8b8" opacity=".6"/>
+      <!-- ears (pointy, Shiba!) -->
+      <polygon class="shiba-ear-l" points="7,12 3,1 12,8" fill="#e8a030" stroke="#d4922a" stroke-width="0.3"/>
+      <polygon class="shiba-ear-r" points="21,12 25,1 16,8" fill="#e8a030" stroke="#d4922a" stroke-width="0.3"/>
+      <!-- inner ears -->
+      <polygon points="7.5,11.5 4.5,3 11,8.5" fill="#f4b0b0" opacity=".45"/>
+      <polygon points="20.5,11.5 23.5,3 17,8.5" fill="#f4b0b0" opacity=".45"/>
+      <!-- eyes -->
+      <ellipse class="shiba-eye-l" cx="10" cy="15" rx="2.2" ry="2.2" fill="#1a1000"/>
+      <ellipse class="shiba-eye-r" cx="18" cy="15" rx="2.2" ry="2.2" fill="#1a1000"/>
+      <!-- eye sparkle -->
+      <circle cx="11" cy="13.8" r="0.9" fill="white"/>
+      <circle cx="19" cy="13.8" r="0.9" fill="white"/>
+      <!-- nose -->
+      <ellipse cx="14" cy="19.5" rx="1.8" ry="1.2" fill="#2a1a08"/>
+      <!-- mouth -->
+      <path d="M12,21 Q14,23 16,21" fill="none" stroke="#8a6a30" stroke-width=".6"/>
+      <!-- tongue -->
+      <ellipse cx="14.3" cy="23" rx="1.2" ry="1.6" fill="#e87070" opacity=".7"/>
+      <!-- cheek blush -->
+      <circle cx="6" cy="18" r="2" fill="#f0a0a0" opacity=".18"/>
+      <circle cx="22" cy="18" r="2" fill="#f0a0a0" opacity=".18"/>
+    </g>
+  </svg>
+</div>
+
+<!-- SHIBA SPEECH BUBBLE -->
+<div id="clippy-dialog-overlay">
+  <div id="clippy-dialog">
+    <div class="cd-title">Woof! Welcome!</div>
+    <div class="cd-msg">Double-click icons to open windows.<br>Try typing <b style="color:var(--accent)">help</b> in the Terminal!</div>
+  </div>
+</div>
+
+<!-- NOTIFICATION CONTAINER -->
+<div id="notif-container"></div>
 
 <script>
 // CLOCK
@@ -994,8 +1267,181 @@ function termKey(e){
   const b=document.getElementById('term-body');b.scrollTop=b.scrollHeight;
 }
 
+// ── SHIBA SPEECH BUBBLE (follows pet, auto-dismiss) ──
+function dismissClippyDialog(){
+  const overlay = document.getElementById('clippy-dialog-overlay');
+  overlay.classList.remove('visible');
+  setTimeout(()=> overlay.style.display='none', 400);
+}
+function positionBubble(){
+  const pup = document.getElementById('cat-clippy');
+  const bubble = document.getElementById('clippy-dialog-overlay');
+  if(!pup || !bubble) return;
+  const px = parseFloat(pup.style.left) || (window.innerWidth/2 - 36);
+  const py = parseFloat(pup.style.top) || (window.innerHeight/2 - 36);
+  bubble.style.left = (px - 20) + 'px';
+  bubble.style.top = (py - 90) + 'px';
+}
+// Show after 1.5s, auto-dismiss after 7s
+setTimeout(()=>{
+  positionBubble();
+  document.getElementById('clippy-dialog-overlay').classList.add('visible');
+  // Keep repositioning while visible
+  const interval = setInterval(positionBubble, 100);
+  setTimeout(()=> { dismissClippyDialog(); clearInterval(interval); }, 7000);
+}, 1500);
+
+// ── PUPPY MOUSE-FOLLOW (lazy lag) ──
+(function(){
+  const pup = document.getElementById('cat-clippy');
+  if(!pup) return;
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  let cx = mx - 40, cy = my - 40;
+  pup.style.left = cx + 'px';
+  pup.style.top = cy + 'px';
+  let isWalking = false;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+  });
+
+  function tick(){
+    const targetX = mx - 40;
+    const targetY = my - 40;
+    const dx = targetX - cx;
+    const dy = targetY - cy;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+
+    // Only start moving if mouse is far enough away
+    if(dist > 60) {
+      // Very slow follow - lerp factor 0.018 for lazy lag
+      cx += dx * 0.018;
+      cy += dy * 0.018;
+      pup.style.left = cx + 'px';
+      pup.style.top = cy + 'px';
+      // Flip to face direction (SVG faces left by default)
+      if(dx > 8) pup.style.transform = 'scaleX(-1)';
+      else if(dx < -8) pup.style.transform = 'scaleX(1)';
+      // Walking animation on
+      if(!isWalking) { pup.classList.add('walking'); isWalking = true; }
+    } else {
+      // Close enough, stop walking
+      if(isWalking) { pup.classList.remove('walking'); isWalking = false; }
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+// ── NOTIFICATION SYSTEM (macOS-style, no emojis) ──
+(function(){
+  const container = document.getElementById('notif-container');
+  if(!container) return;
+
+  const notifications = [
+    { label: 'Clippy', msg: "Psst! Try the settings icon in the top bar — there's a brightness slider and accent colors." },
+    { label: 'Tip', msg: "Double-click desktop icons to open windows. Drag them by the title bar!" },
+    { label: 'Terminal', msg: "Type 'help' in the Terminal for all available commands." },
+    { label: 'Fun Fact', msg: "Umesh has a perfect 4.0 GPA across two CS degrees — BS and MS." },
+    { label: 'Clippy', msg: "Check the Settings window — you can change accent color and wallpaper!" },
+    { label: 'Clippy', msg: "Try resizing any window from the bottom-right corner handle." },
+    { label: 'Fun Fact', msg: "Umesh plays tennis. Good hands on the racket AND the keyboard." },
+    { label: 'Clippy', msg: "The Personal folder has hobbies and photos — check it out!" },
+    { label: 'Tip', msg: "This portfolio IS an OS. If that doesn't say something about how Umesh builds things..." },
+    { label: 'Fun Fact', msg: "Built a production RAG system with medical LLMs for 6 enterprise clients. Still in grad school." },
+    { label: 'Clippy', msg: "Try typing 'konami' in the terminal for a surprise." },
+    { label: 'Tip', msg: "The terminal has commands like 'about', 'skills', 'experience', 'open <app>', and more!" },
+  ];
+
+  let lastIdx = -1;
+  let queue = [...Array(notifications.length).keys()];
+  // shuffle
+  for(let i=queue.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1));[queue[i],queue[j]]=[queue[j],queue[i]]; }
+  let queuePos = 0;
+
+  function showNotification(){
+    if(queuePos >= queue.length){
+      // reshuffle
+      for(let i=queue.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1));[queue[i],queue[j]]=[queue[j],queue[i]]; }
+      queuePos = 0;
+    }
+    const n = notifications[queue[queuePos++]];
+    const toast = document.createElement('div');
+    toast.className = 'notif-toast';
+    toast.innerHTML = `<div class="notif-header"><span class="notif-label">${n.label}</span></div><div class="notif-body">${n.msg}</div>`;
+    container.appendChild(toast);
+    // trigger animation
+    requestAnimationFrame(()=> requestAnimationFrame(()=> toast.classList.add('show')));
+    // auto dismiss after 5s
+    setTimeout(()=>{
+      toast.classList.remove('show');
+      setTimeout(()=> toast.remove(), 500);
+    }, 5000);
+  }
+
+  // First notification after 8s, then every 10-14s
+  setTimeout(()=>{
+    showNotification();
+    setInterval(()=> showNotification(), 10000 + Math.random()*4000);
+  }, 8000);
+})();
+
+// ── KONAMI CODE ──
+(function(){
+  const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  let kIdx = 0;
+  document.addEventListener('keydown', e=>{
+    if(e.key === konami[kIdx]) { kIdx++; } else { kIdx=0; }
+    if(kIdx === konami.length){
+      kIdx=0;
+      let hue=0;
+      const iv = setInterval(()=>{
+        document.documentElement.style.setProperty('--accent', `hsl(${hue},70%,60%)`);
+        document.documentElement.style.setProperty('--accent2', `hsl(${hue+30},70%,50%)`);
+        hue = (hue+3)%360;
+      }, 30);
+      setTimeout(()=>{
+        clearInterval(iv);
+        document.documentElement.style.setProperty('--accent','#C58361');
+        document.documentElement.style.setProperty('--accent2','#a66b4a');
+      }, 6000);
+    }
+  });
+
+  // 'konami' typed in terminal
+  const origTermKey = window.termKey;
+  window.termKey = function(e){
+    if(e.key==='Enter'){
+      const inp=document.getElementById('term-input');
+      if(inp&&inp.value.trim().toLowerCase()==='konami'){
+        inp.value='';
+        const hist=document.getElementById('term-history');
+        const ol=document.createElement('div');ol.className='term-line term-out';
+        ol.innerHTML='<span style="color:#ff6b9d">🌈 Rainbow mode activated for 6 seconds!</span>';
+        hist.appendChild(ol);
+        const b=document.getElementById('term-body');b.scrollTop=b.scrollHeight;
+        let hue=0;
+        const iv=setInterval(()=>{
+          document.documentElement.style.setProperty('--accent',`hsl(${hue},70%,60%)`);
+          hue=(hue+3)%360;
+        },30);
+        setTimeout(()=>{clearInterval(iv);document.documentElement.style.setProperty('--accent','#C58361');},6000);
+        return;
+      }
+    }
+    if(origTermKey) origTermKey.call(this,e);
+  };
+})();
+
 // INIT
-openApp('about');
+  openApp('about');
+
+// Mobile theme toggle
+function toggleMobileTheme(){
+  const btn = document.getElementById('mv-theme-toggle');
+  const isLight = document.body.classList.toggle('light-mode');
+  if(btn) btn.textContent = isLight ? '☀' : '☾';
+}
 </script>
 </body>
 </html>
